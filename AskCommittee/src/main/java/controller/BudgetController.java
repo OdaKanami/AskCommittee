@@ -1,13 +1,13 @@
-package com.example.demo;
+package controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class HelloController {
+public class BudgetController {
 
-@RequestMapping(value="/hello")
+@RequestMapping(value="/budget")
 private String hello(){
-return "/index.html";
+return "/budget.html";
 }
 }
