@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ScheduleController {
 
 @RequestMapping(value="/schedule")
-private String schedule(){
+private String scheduleview(){
 return "/schedule.html";
 }
 

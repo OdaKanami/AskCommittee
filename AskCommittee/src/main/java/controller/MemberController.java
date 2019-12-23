@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MemberController {
 
 @RequestMapping(value="/member")
-private String member(){
+private String memberview(){
 return "/member.html";
 }
 }

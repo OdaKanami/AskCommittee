@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ShopController {
 
 @RequestMapping(value="/shop")
-private String shop(){
+private String shopview(){
 return "/shop.html";
 }
 

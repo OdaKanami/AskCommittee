@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class BudgetController {
 
 @RequestMapping(value="/budget")
-private String budget(){
+private String budgetview(){
 return "/budget.html";
 }
 

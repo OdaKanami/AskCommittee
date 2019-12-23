@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class TopController {
 
 @RequestMapping(value="/top")
-private String hello(){
+private String topview(){
 return "/top.html";
 }
 }
