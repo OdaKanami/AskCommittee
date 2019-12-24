@@ -7,21 +7,36 @@
 <body>
 	<div align="center">
 		<h1>お店登録</h1>
-		<table border="1">
-			<tr>
-				<th>店名</th>
-				<th>URL</th>
-				<th>備考</th>
-			</tr>
-			<tr>
-				<td><input type="text" name="name" size="40" /></td>
-				<td><input type="text" name="name" size="40" /></td>
-				<td><input type="text" name="name" size="40" /></td>
-			</tr>
-		</table>
-		<br /> <br /> <button type="button" onclick="location.href='http://localhost:8080/shop/confirm'">登録</button>
-		<button type="button" onclick="location.href='http://localhost:8080/shop'">キャンセル</button>
-			<br /> <br />
+		<form action="/shop/confirm" method="post">
+			<div>
+				<label for="name">店名</label> 
+				<input type="text" id="name" name="name">
+			</div>
+			<br />
+			<div>
+				<label for="url">URL</label> 
+				<input type="text" id="url" name="url">
+			</div>
+			<br />
+			<div>
+				<label for="phoneNumber">電話番号</label> 
+				<input type="text" id="phoneNumber" name="phoneNumber">
+			</div>
+			<br />
+			<div>
+				<label for="remark">備考</label>
+				<textarea id="remark" name="remark"></textarea>
+			</div>
+			<br />
+			<input type="submit" value="登録する">
+		</form>
+
+		<br /> <br />
+		<button type="button"
+			onclick="location.href='http://localhost:8080/shop/confirm'">登録</button>
+		<button type="button"
+			onclick="location.href='http://localhost:8080/shop'">キャンセル</button>
+		<br /> <br />
 		<button type="button"
 			onclick="location.href='https://www.asking.co.jp/'">帰属意識を高めよう</button>
 	</div>
