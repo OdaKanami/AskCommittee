@@ -1,23 +1,26 @@
 package controller;
 
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import form.ShopForm;
 
+@EnableAutoConfiguration
 @Controller
 public class ShopController {
 
-	@RequestMapping(value = "/shop")
-	private String shopview() {
-		return "/shop.html";
+	@RequestMapping(value = "/shop", method = RequestMethod.GET)
+	public String shopview(Model model) {
+		return "shop";
 	}
 
 	@RequestMapping(value = "/shop/register", method = { RequestMethod.POST, RequestMethod.GET})
-	private String register() {
-		return "/shopregister.html";
+	public String register(Model model) {
+		return "shopregister";
 	}
 
 	@RequestMapping(value = "/shop/confirm", method = { RequestMethod.POST, RequestMethod.GET})
@@ -31,8 +34,8 @@ public class ShopController {
 		return mav;
 	}
 
-	@RequestMapping(value = "/shop/comple")
-	private String comple() {
-		return "/shopcomple.html";
+	@RequestMapping(value = "/shop/comple", method = RequestMethod.GET)
+	public String comple(Model model) {
+		return "shopcomple";
 	}
 }
