@@ -3,33 +3,25 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>お店リスト</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 	<div align="center">
 		<h1>お店登録</h1>
-		<form action="/shop/confirm" method="post">
-			<div>
-				<label for="name">店名</label> 
-				<input type="text" id="name" name="name">
-			</div>
-			<br />
-			<div>
-				<label for="url">URL</label> 
-				<input type="text" id="url" name="url">
-			</div>
-			<br />
-			<div>
-				<label for="phoneNumber">電話番号</label> 
-				<input type="text" id="phoneNumber" name="phoneNumber">
-			</div>
-			<br />
-			<div>
-				<label for="remark">備考</label>
-				<textarea id="remark" name="remark"></textarea>
-			</div>
-			<br />
-			<input type="submit" value="登録する">
-		</form>
+		<form method="post" action="/shop/confirm">
+		<span>店名: </span>
+		<input type="text" name="name" value="" />
+		<br />
+		<span>URL: </span>
+		<input type="text" name="url" value="" />
+		<br />
+		<div class="btn-cross">
+		<input type="submit" value="send" class="button"/>
+		</div>
+		<a href="#" class="btn-cross">
+  BUTTON
+</a>
+	</form>
 ​
 		<br /> <br />
 		<button type="button"

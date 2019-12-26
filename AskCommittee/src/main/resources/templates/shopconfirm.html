@@ -9,20 +9,14 @@
 		<h1>お店登録確認</h1>
 		<br />
 		<p>以下のお店を登録します。よろしいですか？</p>
-		<table border="1">
-			<tr>
-				<th>店名</th>
-				<th>URL</th>
-				<th>電話番号</th>
-				<th>備考</th>
-			</tr>
-			<tr>
-				<td>${name}</td>
-				<td>${url}</td>
-				<td>${phoneNumber}</td>
-				<td>${remark}</td>
-			</tr>
-		</table>
+		<form method="post" action="/shop/confirm">
+		<span>店名: </span>
+		<span th:text="${name}"></span>
+		<br />
+		<span>URL: </span>
+		<span th:text="${url}"></span>
+		<br />
+		</form>
 		<br /> <br /> <button type="button" onclick="location.href='http://localhost:8080/shop/comple'">はい</button>
 		<button type="button" onclick="location.href='http://localhost:8080/shop/register'">いいえ</button>
 			<br /> <br />
