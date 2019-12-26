@@ -32,7 +32,9 @@ public class ShopController {
 	@RequestMapping(value = {"/shop/confirm"}, method = {RequestMethod.POST})
 	public ModelAndView postTest1(
 			@RequestParam(value="name", required = true) String name,
-			@RequestParam(value="url", required = true) String url) {
+			@RequestParam(value="url", required = true) String url,
+			@RequestParam(value="phoneNumber", required = true) String phoneNumber,
+			@RequestParam(value="remark", required = true) String remark) {
 		
 		// 生成
 		ModelAndView mv = new ModelAndView();
@@ -43,6 +45,8 @@ public class ShopController {
 		// modelに設定して画面に表示するようにする
 		mv.addObject("name", name);
 		mv.addObject("url", url);
+		mv.addObject("phoneNumber", phoneNumber);
+		mv.addObject("remark", remark);
 		
 		// 返却
 		return mv;
@@ -52,7 +56,9 @@ public class ShopController {
 	@RequestMapping(value = {"/shop/confirm"}, method = {RequestMethod.GET})
 	public ModelAndView getTest1(
 			@RequestParam(value="name", required = true) String name,
-			@RequestParam(value="url", required = true) String url) {
+			@RequestParam(value="url", required = true) String url,
+			@RequestParam(value="phoneNumber", required = true) String phoneNumber,
+			@RequestParam(value="remark", required = true) String remark) {
 		
 		// 生成
 		ModelAndView mv = new ModelAndView();
@@ -63,6 +69,8 @@ public class ShopController {
 		// modelに設定して画面に表示するようにする
 		mv.addObject("name", name);
 		mv.addObject("url", url);
+		mv.addObject("phoneNumber", phoneNumber);
+		mv.addObject("remark", remark);
 		
 		// 返却
 		return mv;

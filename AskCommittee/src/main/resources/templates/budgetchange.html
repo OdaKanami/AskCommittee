@@ -1,35 +1,38 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>予算変更</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
+<div id="container">
 	<div align="center">
 		<h1>予算変更</h1>
 		<p>予算を変えられるよ^^</p>
 		<table border="1">
 			<tr>
-				<th>予算</th>
-				<td><input type="text" name="budget" size="40" /></td>
+				<th>全体</th>
+				<td><input type="text" name="all" size="40" /></td>
 			</tr>
 			<tr>
 				<th>参加人数</th>
 				<td><input type="text" name="num" size="40" /></td>
 			</tr>
-				<th></th>
-				<td></td>
-				<th></th>
-				<td></td>
-				<th></th>
-				<td></td>
-				<th></th>
-				<td></td>
+			<tr>
+				<th>飲食</th>
+				<td><input type="text" name="foodAndDrink" size="40" /></td>
+			</tr>
+			<tr>
+				<th>備品</th>
+				<td><input type="text" name="equipment" size="40" /></td>
+			</tr>
 		
 		</table>
 		<br />
-		<button type="button" onclick="location.href='http://localhost:8080/budget/confirm'">変更</button>
-		<button type="button" onclick="location.href='http://localhost:8080/budget'">キャンセル</button>
+		<button type="button" class="button" onclick="location.href='http://localhost:8080/budget/confirm'">変更</button>
+		<button type="button" class="button" onclick="location.href='http://localhost:8080/budget'">キャンセル</button>
+	</div>
 	</div>
 </body>
 </html>
