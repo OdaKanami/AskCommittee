@@ -26,6 +26,14 @@
 			<button type="button"
 				onclick="location.href='https://www.asking.co.jp/'">帰属意識を高めてみる</button>
 		</div>
+		
+		<table>
+			<tr th:each="member:${memberlist}" th:object="${member}">
+				<td th:text="*{employee_number}"></td>
+				<td th:text="*{name}"></td>
+			</tr>
+		</table>
+		
 		<footer>
 			<hr />
 			<a href="https://privacymark.jp/"> <img
