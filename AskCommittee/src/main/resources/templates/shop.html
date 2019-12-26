@@ -3,32 +3,38 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>お店リスト</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-	<div align="center">
+	<div align="center" id="container">
 		<h1>お店リスト</h1>
-		<p>じゅんびちゅう</p>
+		<p th:text="'お店候補'"></p>
 		<table border="1">
 			<tr>
 				<th>店名</th>
 				<th>URL</th>
+				<th>電話番号</th>
 				<th>備考</th>
 			</tr>
 			<tr>
 				<td>たまや</td>
 				<td><a href= "https://fbgf901.gorp.jp/" >https://fbgf901.gorp.jp/</a></td>
+				<td>09011112222</td>
 				<td>忘年会</td>
 			</tr>
 			<tr>
 				<td>カラオケ館</td>
 				<td><a href= "https://loco.yahoo.co.jp/place/g-GLllRNAS1-2/" >https://loco.yahoo.co.jp/place/g-GLllRNAS1-2/</a></td>
+				<td>08022223333</td>
 				<td>二次会で利用</td>
 			</tr>
 		</table>
-		<br /> <br /> <button type="button" onclick="location.href='http://localhost:8080/shop/register'">お店登録</button><input
-			type="submit" value="削除"> <br /> <br />
-		<button type="button"
-			onclick="location.href='https://www.asking.co.jp/'">帰属意識を高めたくなった</button>
+		<br /> <br /> <button type="button" class="button" onclick="location.href='http://localhost:8080/shop/register'">お店登録
+		</button>
+		<br /> <br />
+		<input type="submit" value="削除" class="button"> <br /> <br />
+			<a href="https://www.asking.co.jp/" class="btn-flat-vertical-border">帰属意識を高めたくなった</a>
+			<br /> <br />
 	</div>
 </body>
 </html>
