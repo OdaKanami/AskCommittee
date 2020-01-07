@@ -2,12 +2,12 @@ package form;
 
 import java.io.Serializable;
 
-import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
 public class ShopForm implements Serializable{
 
-	@NotEmpty(message = "店名が未入力です")
+	@NotBlank(message = "店名が未入力です")
 	private String name;
 	
 	private String url;
@@ -49,7 +49,7 @@ public class ShopForm implements Serializable{
 		this.remark = remark;
 	}
 	
-	ShopForm(){
+	public ShopForm(){
 		
 	}
 	

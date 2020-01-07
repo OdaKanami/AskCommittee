@@ -7,21 +7,21 @@
 </head>
 <body>
 	<div align="center" id="container">
-		<h1>お店登録確認</h1>
+		<h1>お店削除確認</h1>
 		<br />
-		<p>以下のお店を登録します。よろしいですか？</p>
+		<p>以下のお店を削除します。よろしいですか？</p>
 		<form method="post" action="/shopconfirm">
 		<span>店名: </span>
-		<span th:text="${shopForm.name}"></span>
+		<span th:text="${name}"></span>
 		<br />
 		<span>URL: </span>
-		<span th:text="${shopForm.url}"></span>
+		<span th:text="${url}"></span>
 		<br />
 		<span>電話番号: </span>
-		<span th:text="${shopForm.phoneNumber}"></span>
+		<span th:text="${phoneNumber}"></span>
 		<br />
 		<span>備考: </span>
-		<span th:text="${shopForm.remark}"></span>
+		<span th:text="${remark}"></span>
 		<br />
 		</form>
 		<br /> <br /> <button type="button" onclick="location.href='http://localhost:8080/shopcomple'">はい</button>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    lang="ja">
+<head>
+   <title>layout</title>
+   <meta charset="UTF-8" />
+   <link rel="stylesheet" href="/jquery-ui-1.12.1.custom/jquery-ui.css" />
+   <link rel="stylesheet" href="/css/layout.css" />
+</head>
+<body>
+    <header>
+        <span id="title">ホームページ</span><img id="hippo" src="/img/hippo.png" />
+    </header>
+    <hr />
+    <nav>
+        <ul>
+            <li><a href="">メニュー１</a></li>
+            <li><a href="">メニュー２</a></li>
+            <li><a href="">メニュー３</a></li>
+        </ul>
+        <br />
+    </nav>
+    <hr />
+    <div layout:fragment="content">
+        コンテント<br />
+        コンテント<br />
+        コンテント<br />
+        コンテント<br />
+        コンテント<br />
+    </div>
+    <hr />
+    <footer>
+        <address id="info">(C) 2017 w-hippo.com　　<a href="mailto:w.hippo.info@gmail.com">お問い合わせ</a></address>
+    </footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+<script>
+   <!-- ここにGoogleAnalyticsのObjectを入れたりする -->
+</script>
+</body>
+</html>

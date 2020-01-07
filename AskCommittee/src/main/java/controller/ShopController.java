@@ -1,16 +1,17 @@
 package controller;
 
+import javax.validation.Valid;
+
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import form.ShopForm;
 
 @EnableAutoConfiguration
@@ -22,62 +23,47 @@ public class ShopController {
 		return "shop";
 	}
 
-	@RequestMapping(value = {"/shop/register"}, method = {RequestMethod.GET})
-	public ModelAndView index(ModelAndView mv) {
-		mv.setViewName("shopregister");
-		return mv;
+	@RequestMapping(value = {"/shopregister"}, method = {RequestMethod.GET})
+	public String index(Model model) {
+		model.addAttribute("shopForm", new ShopForm());
+		return "shopregister";
 	}
 	
 	// POST用のパラメータを受け取る
-	@RequestMapping(value = {"/shop/confirm"}, method = {RequestMethod.POST})
-	public ModelAndView postTest1(
-			@RequestParam(value="name", required = true) String name,
-			@RequestParam(value="url", required = true) String url,
-			@RequestParam(value="phoneNumber", required = true) String phoneNumber,
-			@RequestParam(value="remark", required = true) String remark) {
+	@RequestMapping(value = {"/shopconfirm"}, method = {RequestMethod.POST})
+	public String shopconfirm(@Validated @ModelAttribute("shopForm") ShopForm shopForm, BindingResult result, Model model) {
 		
-		// 生成
-		ModelAndView mv = new ModelAndView();
+		if (result.hasErrors()) {
+            return "shopregister";
+            }
 		
-		// テンプレートを指定
-		mv.setViewName("shopconfirm");
-		
-		// modelに設定して画面に表示するようにする
-		mv.addObject("name", name);
-		mv.addObject("url", url);
-		mv.addObject("phoneNumber", phoneNumber);
-		mv.addObject("remark", remark);
-		
-		// 返却
-		return mv;
+		return "shopconfirm";
 	}
 	
-	// GET用のパラメータを受け取る
-	@RequestMapping(value = {"/shop/confirm"}, method = {RequestMethod.GET})
-	public ModelAndView getTest1(
-			@RequestParam(value="name", required = true) String name,
-			@RequestParam(value="url", required = true) String url,
-			@RequestParam(value="phoneNumber", required = true) String phoneNumber,
-			@RequestParam(value="remark", required = true) String remark) {
-		
-		// 生成
-		ModelAndView mv = new ModelAndView();
-		
-		// テンプレートを指定
-		mv.setViewName("shopconfirm");
-		
-		// modelに設定して画面に表示するようにする
-		mv.addObject("name", name);
-		mv.addObject("url", url);
-		mv.addObject("phoneNumber", phoneNumber);
-		mv.addObject("remark", remark);
-		
-		// 返却
-		return mv;
+	@RequestMapping(value = {"/shopconfirm"}, method = {RequestMethod.GET})
+	public String shopconfirm2(Model model) {
+		return "shopconfirm";
 	}
 
-	@RequestMapping(value = "/shop/comple", method = RequestMethod.GET)
+	@RequestMapping(value = "/shopcomple", method = RequestMethod.GET)
 	public String comple(Model model) {
 		return "shopcomple";
 	}
+	
+	@RequestMapping(value = "/shopdelete", method = RequestMethod.GET)
+	public String delete(Model model) {
+		return "shopdelete";
+	}
+	
+	@RequestMapping(value = "/shopdeleteconfirm", method = RequestMethod.GET)
+	public String confirm(Model model) {
+		return "shopdeleteconfirm";
+	}
+	
+	@RequestMapping(value = "/shopdeletecomple", method = RequestMethod.GET)
+	public String deletecomple(Model model) {
+		return "shopdeletecomple";
+	}
 }
+
+

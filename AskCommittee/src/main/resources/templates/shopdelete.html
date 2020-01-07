@@ -7,33 +7,34 @@
 </head>
 <body>
 	<div align="center" id="container">
-		<h1>お店リスト</h1>
-		<p>お店候補</p>
+		<h1>お店削除</h1>
+		<p th:text="削除するお店を選んでください"></p>
 		<table border="1">
 			<tr>
+				<th>削除</th>
 				<th>店名</th>
 				<th>URL</th>
 				<th>電話番号</th>
 				<th>備考</th>
 			</tr>
 			<tr>
+			<td><input type="checkbox" name="delete"></td>
 				<td>たまや</td>
 				<td><a href= "https://fbgf901.gorp.jp/" >https://fbgf901.gorp.jp/</a></td>
 				<td>09011112222</td>
 				<td>忘年会</td>
 			</tr>
 			<tr>
+			<td><input type="checkbox" name="delete"></td>
 				<td>カラオケ館</td>
 				<td><a href= "https://loco.yahoo.co.jp/place/g-GLllRNAS1-2/" >https://loco.yahoo.co.jp/place/g-GLllRNAS1-2/</a></td>
 				<td>08022223333</td>
 				<td>二次会で利用</td>
 			</tr>
 		</table>
-		<br /> <br /> <button type="button" class="button" onclick="location.href='http://localhost:8080/shopregister'">登録
-		</button>
+	
 		<br /> <br />
-		<button type="button" class="button" onclick="location.href='http://localhost:8080/shopdelete'">削除
-		</button><br /> <br />
+		<input type="submit" value="削除" class="button"> <br /> <br />
 			<a href="https://www.asking.co.jp/" class="btn-flat-vertical-border">帰属意識を高めたくなった</a>
 			<br /> <br />
 	</div>

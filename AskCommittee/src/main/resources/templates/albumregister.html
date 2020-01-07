@@ -2,17 +2,19 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>お店リスト</title>
+<title>アルバム</title>
 <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 	<div align="center" id="container">
-		<h1>お店登録完了</h1>
-		<br />
-		<p class="moji1">登録完了！！！！！！！！！！！！！！！！！！</p>
+		<h1>アルバム登録</h1>
+		<p>アップロードする画像を選択してください。</p>
+		<form method="post" enctype="albumregister">
+		<input type="file" name="pic">
+​
 		<br /> <br />
-		<button type="button"
-			onclick="location.href='http://localhost:8080/shop'">お店リストへ</button>
+		<input type="submit" class="button" name="botan" value="send">
+		</form>
 		<br /> <br />
 		<a href="https://www.asking.co.jp/" class="btn-flat-vertical-border">帰属意識を高めよう</a>
 	</div>

@@ -13,4 +13,9 @@ public class AlbumController {
 private String albumview(){
 return "album";
 }
+
+@RequestMapping(value="/albumregister", method = RequestMethod.GET)
+private String register(){
+return "albumregister";
+}
 }

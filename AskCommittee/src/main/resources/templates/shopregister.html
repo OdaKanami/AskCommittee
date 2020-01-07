@@ -6,34 +6,39 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-	<div align="center">
+	<div align="center" id="container">
 		<h1>お店登録</h1>
-		<form method="post" action="/shop/confirm">
-		<span>店名: </span>
-		<input type="text" name="name" value="" />
-		<br />
-		<span>URL: </span>
-		<input type="text" name="url" value="" />
-		<br />
-		<span>電話番号: </span>
-		<input type="text" name="phoneNumber" value="" />
-		<br />
-		<span>備考: </span>
-		<input type="text" name="remark" value="" />
-		<br />
-		<div class="btn-cross">
-		<input type="submit" value="send" class="button"/>
-		</div>
-	</form>
-​
-		<br /> <br />
-		<button type="button"
-			onclick="location.href='http://localhost:8080/shop/confirm'">登録</button>
-		<button type="button"
+		
+		<form method="post" action="#" th:action="@{/shopconfirm}" th:object="${shopForm}">
+		<table>
+		<tr>
+		<th>店名</th>
+		<td><input type="text" name="name" th:field="*{name}" th:errorclass="fieldError" size="50"/></td>
+		</tr>
+		<tr>
+		<th>URL</th>
+		<td><input type="text" name="url" th:field="*{url}" size="50"/></td>
+		</tr>
+		<tr>
+		<th>電話番号</th>
+		<td><input type="text" name="phoneNumber" th:field="*{phoneNumber}" size="50"/></td>
+		</tr>
+		<tr>
+		<th>備考</th>
+		<td><input type="text" name="remark" th:field="*{remark}" size="50"/></td>
+		</tr>
+		<tr>
+		<td colspan="2"><input type="submit" value="登録" class="button"/>
+		<button type="button" class="button"
 			onclick="location.href='http://localhost:8080/shop'">キャンセル</button>
-		<br /> <br />
-		<button type="button"
-			onclick="location.href='https://www.asking.co.jp/'">帰属意識を高めよう</button>
+		</td>
+		</tr>
+		</table>
+		<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" style="color: red"></span>
+		</form>
+		<br />
+		<br />
+		<a href="https://www.asking.co.jp/" class="btn-flat-vertical-border">帰属意識を高めよう</a>
 	</div>
 </body>
 </html>
