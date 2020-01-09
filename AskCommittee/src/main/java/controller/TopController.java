@@ -15,5 +15,4 @@ public class TopController {
 	public String topview(Model model) {
 		return "top";
 	}
-
 }
