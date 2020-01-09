@@ -8,13 +8,13 @@ import javax.persistence.Id;
 @Table(name="ask_member")
 public class Ask_member{
 	@Id
-	private Integer employee_number;
+	private Integer emp_num;
 	private String name;
 	private String email;
 	private String password;
 
-	public Integer Employee_number() {
-		return employee_number;
+	public Integer Emp_num() {
+		return emp_num;
 	}	
 	
 	public String getName() {
