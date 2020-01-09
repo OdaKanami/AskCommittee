@@ -6,20 +6,31 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-	<div align="center">
+	<div align="center" id="container">
 		<h1>予算変更確認</h1>
 		<p>以下の予算変更を完了します。よろしいですか？</p>
-		<table border="1">
+		<table>
 			<tr>
-				<th>予算</th>
-				<td>55000</td>
-			</tr>
-			<tr>
+				<th>目的</th>
+				<td>納会</td>
+				<th>日時</th>
+				<td>2019/12/27</td>
 				<th>人数</th>
-				<td>13</td>
+				<td>13名</td>
 			</tr>
-
-		
+		</table>
+		<table id="sample1_table">
+			<tr>
+				<th>内容</th>
+				<th>金額</th>
+				<th>支払先</th>
+				<th>備考</th>
+			<tr>
+			<tr><td>飲食</td>
+				<td>￥5000</td>
+				<td>AJO</td>
+				<td></td>
+			</tr>
 		</table>
 		<br /> <br /> <button type="button" onclick="location.href='http://localhost:8080/budgetcomple'">はい</button>
 		<button type="button" onclick="location.href='http://localhost:8080/budget/change'">いいえ</button>

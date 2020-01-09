@@ -1,36 +1,162 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>予算変更</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>予算変更</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 	<div align="center" id="container">
 		<h1>予算変更</h1>
 		<p>予算を変えられるよ^^</p>
-		<table border="1">
+
+		<script>
+			/**
+			 * 行追加
+			 */
+			function insertRow(id) {
+				/**
+				 * テーブル追加
+				 */
+				var table = document.getElementById(id);
+				/**
+				 * 行追加
+				 */
+				var row = table.insertRow(-1);
+				/**
+				 * セル挿入
+				 */
+				var cell1 = row.insertCell(-1);
+				var cell2 = row.insertCell(-1);
+				var cell3 = row.insertCell(-1);
+				var cell4 = row.insertCell(-1);
+				var cell5 = row.insertCell(-1);
+				/**
+				 * ボタン
+				 */
+				var button = '<input type="button" value="削除" onclick="deleteRow(this)" />';
+
+				/**
+				 * セルの内容
+				 */
+				var row_budgetinfo = '<select name="budgetinfo" required>'
+						+ '<option value="">選択してください</option>'
+						+ '<option value="飲食">飲食</option>'
+						+ '<option value="アクティビティ">アクティビティ</option>'
+						+ '<option value="備品">備品</option>'
+						+ '<option value="交通">交通費</option>'
+						+ '<option value="その他">その他</option>' + '</select>';
+						
+				var row_amount = '￥<input type="text" name="amount" size="5"/>';
+				
+				var row_payee = '<input type="text" name="payee" size="20"/>';
+				
+				var row_remark = '<input type="text" name="remark" size="30"/>';
+				
+	
+
+				cell1.innerHTML = button;
+				cell2.innerHTML = row_budgetinfo;
+				cell3.innerHTML = row_amount;
+				cell4.innerHTML = row_payee;
+				cell5.innerHTML = row_remark;
+
+			}
+
+			/**
+			 * 行削除
+			 */
+			function deleteRow(obj) {
+				tr = obj.parentNode.parentNode;
+				tr.parentNode.deleteRow(tr.sectionRowIndex);
+			}
+		</script>
+
+		<table>
 			<tr>
-				<th>全体</th>
-				<td><input type="text" name="all" size="40" /></td>
+				<th>目的</th>
+				<td><input type="text" name="purpose" /></td>
+				<th>日時</th>
+				<td><input type="date" name="day" /></td>
+				<th>人数</th>
+				<td><input type="text" name="numPeople" size="10" />名</td>
 			</tr>
-			<tr>
-				<th>参加人数</th>
-				<td><input type="text" name="num" size="40" /></td>
-			</tr>
-			<tr>
-				<th>飲食</th>
-				<td><input type="text" name="foodAndDrink" size="40" /></td>
-			</tr>
-			<tr>
-				<th>備品</th>
-				<td><input type="text" name="equipment" size="40" /></td>
-			</tr>
-		
 		</table>
-		<br />
-		<button type="button" class="button" onclick="location.href='http://localhost:8080/budgetconfirm'">変更</button>
-		<button type="button" class="button" onclick="location.href='http://localhost:8080/budget'">キャンセル</button>
+
+		<table id="sample1_table">
+			<tr>
+				<th>行削除</th>
+				<th>内容</th>
+				<th>金額</th>
+				<th>支払先</th>
+				<th>備考</th>
+			<tr>
+			<tr>
+				<td nowrap><input type="button" value="削除"
+					onclick="deleteRow(this)" /></td>
+				<td><select name="budgetinfo" required>
+						<option value="">選択してください</option>
+						<option value="飲食">飲食</option>
+						<option value="アクティビティ">アクティビティ</option>
+						<option value="備品">備品</option>
+						<option value="交通">交通費</option>
+				</select></td>
+				<td>￥<input type="text" name="amount" size="5" /></td>
+				<td><input type="text" name="payee" size="20" /></td>
+				<td><input type="text" name="remark" size="30" /></td>
+			</tr>
+		</table>
+		<br /> <input type="button" value="行追加"
+			onclick="insertRow('sample1_table')" /> <br />
+		
+		<script type="text/javascript">
+			function keisan() {
+
+				var price1 = document.form1.goods1.value; // サンプル１を設定 documentはなんか元からあるやつ　form1(←name)のgoods1(←name)のvalue(値)って意味　
+
+				var price2 = document.form1.goods2.value; // サンプル２を設定　
+
+				var total = eval(price1) + eval(price2); //evalで数値に変換している　ParseIntとかでもできるらしい
+
+				document.form1.field_total.value = total; // 合計を表示
+				
+				//サンプルの場合は項目の数が静的で、name1,name2とつけれるから上記のように合計を出せるけど、
+				//動的な方はname[0]みたいな感じで値をとる必要がありそう　配列とか使って、追加した分だけ金額をループさせて合計するみたいな
+				//調べたら他にもいろいろ方法ありそうでしたが私は分かりませんでした＾＾
+
+			}
+
+		</script>
+
+		<form action="#" name="form1">
+
+			<table>
+				<tr>
+					<th>項目</th>
+					<th>金額</th>
+				</tr>
+				<tr>
+					<td>サンプル1</td>
+					<td><input type="text" name="goods1" onChange="keisan()" value="0"></td>
+				</tr>
+				<tr>
+					<td>サンプル2</td>
+					<td><input type="text" name="goods2" onChange="keisan()" value="0"></td>
+				</tr>
+				<tr>
+					<td align="right"><strong>合計</strong></td>
+					<td><input type="text" name="field_total" size="8" value="0">
+					円</td>
+				</tr>
+			</table>
+
+
+			<br />
+			<button type="button" class="button"
+				onclick="location.href='http://localhost:8080/budgetconfirm'">変更</button>
+			<button type="button" class="button"
+				onclick="location.href='http://localhost:8080/budget'">キャンセル</button>
+			<br /> <br />
 	</div>
 </body>
 </html>

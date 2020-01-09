@@ -7,17 +7,21 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import form.LoginForm;
+import form.ShopForm;
+
 @EnableAutoConfiguration
 @Controller
 public class LoginController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String loginview(Model model) {
+		model.addAttribute("loginForm", new LoginForm());
 		return "login";
 	}
 
 	@RequestMapping(value = "/logout")
-	private String logout() {
+	private String logout(Model model) {
 		return "/logout.html";
 	}
 }
