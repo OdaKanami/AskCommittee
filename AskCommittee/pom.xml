@@ -55,19 +55,12 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
-		
+		<!-- iranai ko kamo sirenai no de horyuu -->		
 		<dependency>
     		<groupId>org.springframework</groupId>
     		<artifactId>spring-jdbc</artifactId>
 		</dependency>
 		<!-- MySQL Connector end -->	
-<!-- 		
-		<dependency>
-    		<groupId>org.mybatis.spring.boot</groupId>
-    		<artifactId>mybatis-spring-boot-starter</artifactId>
-    		<version>2.1.0</version>
-		</dependency>
--->
 	</dependencies>
 
 	<build>
