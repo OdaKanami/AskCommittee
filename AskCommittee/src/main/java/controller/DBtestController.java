@@ -1,25 +1,25 @@
 package controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
 
-import entity.Ask_member;
-import entity.Ask_memberRepository;
-
-@RestController
+@Controller
 public class DBtestController {
-	//@Autowired 自動でbeanを生成してくれるアノテーションなのだが、こいつのせいでプロジェクト自体起動しなくなってしまう
-	private Ask_memberRepository memRepository;
+
+	@Autowired
+	JdbcTemplate jdbcTemplate;
 	
-	@RequestMapping(value = "/dbtest", method = RequestMethod.GET)
-	public String dbtest(Model model) {
-		List<Ask_member> memlist = memRepository.findAll();
-		model.addAttribute("memlist", memlist);
+	@RequestMapping("/dbtest")
+	public String index(Model model) {
+		List<Map<String,Object>> list;
+		list = jdbcTemplate.queryForList("select * from ask_member");
+		model.addAttribute("ask_member", list);
 		return "dbtest";
 	}
 }
