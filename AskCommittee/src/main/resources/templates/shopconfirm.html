@@ -9,7 +9,7 @@
 	<div align="center" id="container">
 		<h1>お店登録確認</h1>
 		<br />
-		<p>以下のお店を登録します。よろしいですか？</p>
+		<p class="moji1">以下のお店を登録します。よろしいですか？</p>
 		<form method="post" action="/shopconfirm">
 		<span>店名: </span>
 		<span th:text="${shopForm.name}"></span>
@@ -24,11 +24,9 @@
 		<span th:text="${shopForm.remark}"></span>
 		<br />
 		</form>
-		<br /> <br /> <button type="button" onclick="location.href='http://localhost:8080/shopcomple'">はい</button>
-		<button type="button" onclick="location.href='http://localhost:8080/shopregister'">いいえ</button>
+		<br /> <br /> <button type="button" class="button" onclick="location.href='http://localhost:8080/shopcomple'">はい</button>
+		<button type="button" class="button" onclick="location.href='http://localhost:8080/shopregister'">いいえ</button>
 			<br /> <br />
-		<button type="button"
-			onclick="location.href='https://www.asking.co.jp/'">帰属意識を高めよう</button>
 	</div>
 </body>
 </html>

@@ -12,7 +12,6 @@ public class ShopForm implements Serializable{
 	
 	private String url;
 	
-	@Pattern(regexp = "0[0-9] {9,10}", message = "電話番号を正しく入力してください")
 	private String phoneNumber;
 	
 	private String remark;
