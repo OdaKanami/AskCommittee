@@ -39,7 +39,7 @@
 				/**
 				 * セルの内容
 				 */
-				var row_budgetinfo = '<select name="budgetinfo" required>'
+				var row_budgetInfo = '<select name="budgetInfo" required>'
 						+ '<option value="">選択してください</option>'
 						+ '<option value="飲食">飲食</option>'
 						+ '<option value="アクティビティ">アクティビティ</option>'
@@ -56,7 +56,7 @@
 	
 
 				cell1.innerHTML = button;
-				cell2.innerHTML = row_budgetinfo;
+				cell2.innerHTML = row_budgetInfo;
 				cell3.innerHTML = row_amount;
 				cell4.innerHTML = row_payee;
 				cell5.innerHTML = row_remark;
@@ -71,7 +71,8 @@
 				tr.parentNode.deleteRow(tr.sectionRowIndex);
 			}
 		</script>
-
+		
+		<form method="post" action="#" th:action="@{/budgetconfirm}" th:object="${budgetForm}">
 		<table>
 			<tr>
 				<th>目的</th>
@@ -94,7 +95,7 @@
 			<tr>
 				<td nowrap><input type="button" value="削除"
 					onclick="deleteRow(this)" /></td>
-				<td><select name="budgetinfo" required>
+				<td><select name="budgetInfo" required>
 						<option value="">選択してください</option>
 						<option value="飲食">飲食</option>
 						<option value="アクティビティ">アクティビティ</option>
@@ -106,6 +107,12 @@
 				<td><input type="text" name="remark" size="30" /></td>
 			</tr>
 		</table>
+		<span th:if="${#fields.hasErrors('purpose')}" th:errors="*{purpose}" style="color: red"></span>
+		
+		<input type="submit" value="変更" class="button"/>
+			<button type="button" class="button"
+				onclick="location.href='http://localhost:8080/budget'">キャンセル</button>
+		</form>
 		<br /> <input type="button" value="行追加"
 			onclick="insertRow('sample1_table')" /> <br />
 		
@@ -128,7 +135,7 @@
 
 		</script>
 
-		<form action="#" name="form1">
+		
 
 			<table>
 				<tr>
@@ -150,12 +157,6 @@
 				</tr>
 			</table>
 
-
-			<br />
-			<button type="button" class="button"
-				onclick="location.href='http://localhost:8080/budgetconfirm'">変更</button>
-			<button type="button" class="button"
-				onclick="location.href='http://localhost:8080/budget'">キャンセル</button>
 			<br /> <br />
 	</div>
 </body>

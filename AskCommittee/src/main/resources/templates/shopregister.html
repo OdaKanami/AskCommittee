@@ -8,11 +8,12 @@
 <body>
 	<div align="center" id="container">
 		<h1>お店登録</h1>
-		
+		<p class="moji1">登録したいお店を入力してください</p>
+		<p style="color: red">※　*は入力必須項目です</p>
 		<form method="post" action="#" th:action="@{/shopconfirm}" th:object="${shopForm}">
 		<table>
 		<tr>
-		<th>店名</th>
+		<th>店名*</th>
 		<td><input type="text" name="name" th:field="*{name}" th:errorclass="fieldError" size="50"/></td>
 		</tr>
 		<tr>
@@ -20,21 +21,23 @@
 		<td><input type="text" name="url" th:field="*{url}" size="50"/></td>
 		</tr>
 		<tr>
-		<th>電話番号</th>
+		<th>電話番号*</th>
 		<td><input type="text" name="phoneNumber" th:field="*{phoneNumber}" size="50"/></td>
 		</tr>
 		<tr>
 		<th>備考</th>
 		<td><input type="text" name="remark" th:field="*{remark}" size="50"/></td>
 		</tr>
-		<tr>
-		<td colspan="2"><input type="submit" value="登録" class="button"/>
+		</table>
+		
+		<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" style="color: red"></span>
+		<br />
+		<span th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}" style="color: red"></span>
+		<br />
+		<br />
+		<input type="submit" value="登録" class="button"/>
 		<button type="button" class="button"
 			onclick="location.href='http://localhost:8080/shop'">キャンセル</button>
-		</td>
-		</tr>
-		</table>
-		<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" style="color: red"></span>
 		</form>
 		<br />
 		<br />

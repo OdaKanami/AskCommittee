@@ -9,10 +9,11 @@
 	<div align="center" id="container">
 		<h1>予算変更確認</h1>
 		<p>以下の予算変更を完了します。よろしいですか？</p>
+		<form method="post" action="/budgetconfirm">
 		<table>
 			<tr>
 				<th>目的</th>
-				<td>納会</td>
+				<td><span th:text="${budgetForm.purpose}"></span></td>
 				<th>日時</th>
 				<td>2019/12/27</td>
 				<th>人数</th>
@@ -32,8 +33,9 @@
 				<td></td>
 			</tr>
 		</table>
-		<br /> <br /> <button type="button" onclick="location.href='http://localhost:8080/budgetcomple'">はい</button>
-		<button type="button" onclick="location.href='http://localhost:8080/budget/change'">いいえ</button>
+		</form>
+		<br /> <br /> <button type="button" class="button" onclick="location.href='http://localhost:8080/budgetcomple'">はい</button>
+		<button type="button" class="button" onclick="location.href='http://localhost:8080/budget/change'">いいえ</button>
 	</div>
 </body>
 </html>

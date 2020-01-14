@@ -4,7 +4,6 @@ import javax.validation.Valid;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -23,24 +22,25 @@ public class ShopController {
 		return "shop";
 	}
 
-	@RequestMapping(value = {"/shopregister"}, method = {RequestMethod.GET})
+	@RequestMapping(value = { "/shopregister" }, method = { RequestMethod.GET })
 	public String index(Model model) {
 		model.addAttribute("shopForm", new ShopForm());
 		return "shopregister";
 	}
-	
+
 	// POST用のパラメータを受け取る
-	@RequestMapping(value = {"/shopconfirm"}, method = {RequestMethod.POST})
-	public String shopconfirm(@Validated @ModelAttribute("shopForm") ShopForm shopForm, BindingResult result, Model model) {
-		
+	@RequestMapping(value = { "/shopconfirm" }, method = { RequestMethod.POST })
+	public String shopconfirm(@Validated @ModelAttribute("shopForm") ShopForm shopForm, BindingResult result,
+			Model model) {
+
 		if (result.hasErrors()) {
-            return "shopregister";
-            }
-		
+			return "shopregister";
+		}
+
 		return "shopconfirm";
 	}
-	
-	@RequestMapping(value = {"/shopconfirm"}, method = {RequestMethod.GET})
+
+	@RequestMapping(value = { "/shopconfirm" }, method = { RequestMethod.GET })
 	public String shopconfirm2(Model model) {
 		return "shopconfirm";
 	}
@@ -49,21 +49,19 @@ public class ShopController {
 	public String comple(Model model) {
 		return "shopcomple";
 	}
-	
+
 	@RequestMapping(value = "/shopdelete", method = RequestMethod.GET)
 	public String delete(Model model) {
 		return "shopdelete";
 	}
-	
+
 	@RequestMapping(value = "/shopdeleteconfirm", method = RequestMethod.GET)
 	public String confirm(Model model) {
 		return "shopdeleteconfirm";
 	}
-	
+
 	@RequestMapping(value = "/shopdeletecomple", method = RequestMethod.GET)
 	public String deletecomple(Model model) {
 		return "shopdeletecomple";
 	}
 }
-
-
