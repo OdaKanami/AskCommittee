@@ -2,8 +2,9 @@ package controller;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -16,6 +17,9 @@ import form.ShopForm;
 @EnableAutoConfiguration
 @Controller
 public class ShopController {
+	
+	@Autowired
+	JdbcTemplate jdbcTemplate;
 
 	@RequestMapping(value = "/shop", method = RequestMethod.GET)
 	public String shopview(Model model) {

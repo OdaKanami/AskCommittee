@@ -6,6 +6,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
 public class ShopForm implements Serializable{
+	
+	private int id;
 
 	@NotBlank(message = "店名が未入力です")
 	private String name;
@@ -16,6 +18,14 @@ public class ShopForm implements Serializable{
 	private String phoneNumber;
 	
 	private String remark;
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public String getName() {
 		return name;

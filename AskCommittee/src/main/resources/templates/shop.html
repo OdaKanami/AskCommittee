@@ -17,16 +17,10 @@
 				<th>備考</th>
 			</tr>
 			<tr>
-				<td>たまや</td>
-				<td><a href= "https://fbgf901.gorp.jp/" >https://fbgf901.gorp.jp/</a></td>
-				<td>09011112222</td>
-				<td>忘年会</td>
-			</tr>
-			<tr>
-				<td>カラオケ館</td>
-				<td><a href= "https://loco.yahoo.co.jp/place/g-GLllRNAS1-2/" >https://loco.yahoo.co.jp/place/g-GLllRNAS1-2/</a></td>
-				<td>08022223333</td>
-				<td>二次会で利用</td>
+				<td><p th:each="ask_shop : ${ask_shop}" th:text="${ask_shop.get('name')}" /></td>
+				<td><p th:each="ask_shop : ${ask_shop}" th:text="${ask_shop.get('url')}" /></td>
+				<td><p th:each="ask_shop : ${ask_shop}" th:text="${ask_shop.get('phoneNumber')}" /></td>
+				<td><p th:each="ask_shop : ${ask_shop}" th:text="${ask_shop.get('remark')}" /></td>
 			</tr>
 		</table>
 		<br /> <br /> <button type="button" class="button" onclick="location.href='http://localhost:8080/shopregister'">登録
