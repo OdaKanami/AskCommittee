@@ -19,21 +19,18 @@
 		<java.version>1.8</java.version>
 	</properties>
 
-	<dependencies>
-		 <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>        
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
-        </dependency>
-
+	<dependencies>    
+<!-- security 	
+    	<dependency>
+        	<groupId>org.springframework.boot</groupId>
+        	<artifactId>spring-boot-starter-security</artifactId>
+    	</dependency>    
+-->    				
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
+			<artifactId>spring-boot-starter-web</artifactId>        
 		</dependency>
-
+            
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -45,8 +42,13 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-
-		<!-- MySQL Connector start -->
+		
+		<!-- Thymeleaf -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>		
+		<!-- MySQL Connector -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -55,12 +57,12 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
-		<!-- iranai ko kamo sirenai no de horyuu -->		
+		<!-- auto reload -->
 		<dependency>
-    		<groupId>org.springframework</groupId>
-    		<artifactId>spring-jdbc</artifactId>
-		</dependency>
-		<!-- MySQL Connector end -->	
+        	<groupId>org.springframework.boot</groupId>
+        	<artifactId>spring-boot-devtools</artifactId>
+    	</dependency>
+
 	</dependencies>
 
 	<build>

@@ -18,7 +18,7 @@ public class DBtestController {
 	@RequestMapping("/dbtest")
 	public String index(Model model) {
 		List<Map<String,Object>> list;
-		list = jdbcTemplate.queryForList("select * from ask_member where emp_num = '2019000'");
+		list = jdbcTemplate.queryForList("select * from ask_member where id = '2019000'");
 		model.addAttribute("ask_member", list);
 		return "dbtest";
 	}
