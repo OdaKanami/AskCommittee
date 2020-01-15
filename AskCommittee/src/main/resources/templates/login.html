@@ -10,7 +10,7 @@
 
 		<h1>ログイン画面</h1>
 		<table border="1">
-			<tr>
+<!-- 		<tr>
 				<th>UserName</th>
 				<td><input type="text" name="name" size="40" /></td>
 			</tr>
@@ -18,6 +18,14 @@
 				<th>PassWord</th>
 				<td><input type="password" name="name" size="40" /></td>
 			</tr>
+ -->
+			<form th:action="@{/signin}" method="post">
+				<input type="text" name="id">id
+				<br/>
+				<input type="password" name="password">password
+				<br/>
+				<input type="submit" value="Login">
+			</form>
 		</table>
 		<br /> <input type="submit" value="Login" class="button">
 
