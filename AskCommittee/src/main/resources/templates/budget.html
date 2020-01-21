@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<meta charset="utf-8">
-	<title>AskCommittee</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+<meta charset="utf-8">
+<title>AskCommittee</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 	<div align="center" id="container">
 		<h1>予算</h1>
-		<p>予算をみれるよ</p>
 		<table>
-			<tr>
+			<tr th:each="ask_budget_content : ${ask_budget_content}">
 				<th>目的</th>
-				<td>納会</td>
+				<td th:text="${ask_budget_content.get('purpose')}"></td>
 				<th>日時</th>
-				<td>2019/12/27</td>
+				<td th:text="${ask_budget_content.get('day')}"></td>
 				<th>人数</th>
-				<td>13名</td>
+				<td th:text="${ask_budget_content.get('numPeople')}"></td>
 			</tr>
 		</table>
 
@@ -27,21 +26,23 @@
 				<th>支払先</th>
 				<th>備考</th>
 			<tr>
-			<tr>
-				<td>飲食</td>
-				<td>￥5000</td>
-				<td>AJO</td> 
-				<td></td>
+			<tr th:each="ask_budget_detail : ${ask_budget_detail}">
+				<td th:text="${ask_budget_detail.get('budgetInfo')}"></td>
+				<td th:text="${ask_budget_detail.get('amount')}"></td>
+				<td th:text="${ask_budget_detail.get('payee')}"></td>
+				<td th:text="${ask_budget_detail.get('remark')}"></td>
 			</tr>
 		</table>
-		<br />
-		
-		
-		<button type="button" class="button" onclick="location.href='http://localhost:8080/budgetchange'">予算の変更</button>
-		<br />
-		<br />
-		<a href="https://www.asking.co.jp/" class="btn-flat-vertical-border">帰属意識を高めたくなった</a>
-			<br /> <br />
+		<br /> 
+		<span th:each="ask_budget_content : ${ask_budget_content}" th:text="'予算：￥' + ${ask_budget_content.budget}" class="under"></span>
+		<span class="moji1">-</span> 
+		<span th:text="'合計：￥' + ${total}" class="under"></span> 
+		<span class="moji1">=</span> 
+		<span th:text="'残高：￥' + ${balance}" class="under"></span> <br /> <br /> <br />
+		<button type="button" class="button"
+			onclick="location.href='http://localhost:8080/budgetchange'">予算の変更</button>
+		<br /> <br /> <a href="https://www.asking.co.jp/"
+			class="btn-flat-vertical-border">帰属意識を高めたくなった</a> <br /> <br />
 	</div>
 </body>
 </html>

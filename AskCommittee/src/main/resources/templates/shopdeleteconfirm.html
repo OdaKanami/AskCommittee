@@ -10,7 +10,7 @@
 		<h1>お店削除確認</h1>
 		<br />
 		<p>以下のお店を削除します。よろしいですか？</p>
-		<form method="post" action="/shopconfirm">
+		<form method="post" action="#" th:action="@{/shopdeleteconfirm}" th:object="${shopModel}">
 		<span>店名: </span>
 		<span th:text="${name}"></span>
 		<br />
