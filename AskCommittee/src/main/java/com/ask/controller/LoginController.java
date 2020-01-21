@@ -1,4 +1,5 @@
-package controller;
+/*
+package com.ask.controller;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -7,8 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import form.LoginForm;
-import form.ShopForm;
+import com.ask.form.LoginForm;
+import com.ask.form.ShopForm;
 
 @EnableAutoConfiguration
 @Controller
@@ -25,3 +26,4 @@ public class LoginController {
 		return "/logout.html";
 	}
 }
+*/

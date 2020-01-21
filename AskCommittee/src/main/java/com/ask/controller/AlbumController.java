@@ -1,4 +1,4 @@
-package controller;
+package com.ask.controller;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
@@ -7,10 +7,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @EnableAutoConfiguration
 @Controller
-public class MemberController {
+public class AlbumController {
 
-@RequestMapping(value="/member", method = RequestMethod.GET)
-private String memberview(){
-return "member";
+@RequestMapping(value="/album", method = RequestMethod.GET)
+private String albumview(){
+return "album";
+}
+
+@RequestMapping(value="/albumregister", method = RequestMethod.GET)
+private String register(){
+return "albumregister";
 }
 }

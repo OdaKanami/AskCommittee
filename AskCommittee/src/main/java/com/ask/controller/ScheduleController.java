@@ -1,4 +1,4 @@
-package controller;
+package com.ask.controller;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;

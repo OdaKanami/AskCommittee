@@ -1,4 +1,4 @@
-package controller;
+package com.ask.controller;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import form.BudgetForm;
-import form.ShopForm;
+import com.ask.form.BudgetForm;
+import com.ask.form.ShopForm;
 
 @EnableAutoConfiguration
 @Controller

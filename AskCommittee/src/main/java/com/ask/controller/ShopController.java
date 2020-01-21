@@ -1,4 +1,4 @@
-package controller;
+package com.ask.controller;
 
 import javax.validation.Valid;
 
@@ -12,7 +12,8 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import form.ShopForm;
+
+import com.ask.form.ShopForm;
 
 @EnableAutoConfiguration
 @Controller
