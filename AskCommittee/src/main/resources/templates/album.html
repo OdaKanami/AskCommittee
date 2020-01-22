@@ -1,18 +1,53 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<meta charset="utf-8">
-	<title>アルバム</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+<meta charset="utf-8">
+<title>アルバム</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 	<div align="center" id="container">
 		<h1>アルバム</h1>
+		<ul class="box-list">
+			<li>
+				<div>
+					<img src="image01.jpg">
+				</div>
+				<h2>Title</h2>
+				<p>Description</p>
+			</li>
+			<li>
+				<div>
+					<img src="image02.jpg">
+				</div>
+				<h2>Title</h2>
+				<p>Description</p>
+			</li>
+			<li>
+				<div>
+					<img src="image03.jpg">
+				</div>
+				<h2>Title</h2>
+				<p>Description</p>
+			</li>
+			<li>
+				<div>
+					<img src="image04.jpg">
+				</div>
+				<h2>Title</h2>
+				<p>Description</p>
+			</li>
+			<li>
+				<div>
+					<img src="image05.jpg">
+				</div>
+				<h2>Title</h2>
+				<p>Description</p>
+			</li>
+		</ul>
 		<p th:text="じゅんびちゅう" />
-		<br/>
-		<br/>
-		<a href="http://localhost:8080/top"
+		<br /> <br /> <a href="http://localhost:8080/top"
 			class="btn-circle-border-double">TOPページへ</a> <br /> <br />
 	</div>
 </body>

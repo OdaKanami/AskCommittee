@@ -32,11 +32,6 @@
   transition: .4s;
 }
 
-.btn-flat-vertical-border:hover {
-  background: #668ad8;
-  color: #FFF;
-}
-
 h1 {
   position: relative;
   padding: 0.25em 1em;
@@ -141,4 +136,27 @@ table tr:last-child td:last-child {
 .btn-circle-border-double:hover {
   -webkit-transform: rotateY(360deg);
   transform: rotateY(360deg);
+}
+
+*{
+    box-sizing: border-box;
+}
+.box-list{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+}
+.box-list li{
+  float: left;
+  border:1px solid #ddd;
+  width: 19%;
+  margin-bottom: 1%;
+  margin-right: 1.25%;
+}
+ul li:last-child{
+  margin-right:0;
+}
+img{
+  width: 100%
 }
