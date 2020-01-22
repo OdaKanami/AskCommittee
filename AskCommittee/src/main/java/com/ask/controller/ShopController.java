@@ -24,6 +24,7 @@ import com.ask.service.ShopService;
 @ComponentScan
 public class ShopController {
 	
+	@Autowired
 	ShopService shopService;
 	
 	@Autowired
