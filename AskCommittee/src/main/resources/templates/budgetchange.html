@@ -74,13 +74,13 @@
 		
 		<form method="post" action="#" th:action="@{/budgetconfirm}" th:object="${budgetForm}">
 		<table>
-			<tr>
+			<tr th:each="ask_budget_content : ${ask_budget_content}">
 				<th>目的</th>
-				<td><input type="text" name="purpose" /></td>
+				<td><input type="text" th:value="${ask_budget_content.get('purpose')}" name="purpose" /></td>
 				<th>日時</th>
-				<td><input type="date" name="day" /></td>
+				<td><input type="date" th:value="${ask_budget_content.get('day')}" name="day" /></td>
 				<th>人数</th>
-				<td><input type="text" name="numPeople" size="10" />名</td>
+				<td><input type="text" th:value="${ask_budget_content.get('numPeople')}" name="numPeople" size="10" />名</td>
 			</tr>
 		</table>
 
@@ -92,23 +92,24 @@
 				<th>支払先</th>
 				<th>備考</th>
 			<tr>
-			<tr>
+			<tr th:each="ask_budget_detail : ${ask_budget_detail}">
 				<td nowrap><input type="button" value="削除"
 					onclick="deleteRow(this)" /></td>
-				<td><select name="budgetInfo" required>
-						<option value="">選択してください</option>
-						<option value="飲食">飲食</option>
-						<option value="アクティビティ">アクティビティ</option>
-						<option value="備品">備品</option>
-						<option value="交通">交通費</option>
+				<td><select th:value="${ask_budget_detail.get('budgetInfo')}" name="budgetInfo" required>
+						<option value="1">選択してください</option>
+						<option value="2">飲食</option>
+						<option value="3">アクティビティ</option>
+						<option value="4">備品</option>
+						<option value="5">交通費</option>
 				</select></td>
-				<td>￥<input type="text" name="amount" size="5" /></td>
-				<td><input type="text" name="payee" size="20" /></td>
-				<td><input type="text" name="remark" size="30" /></td>
+				<td>￥<input type="text" th:value="${ask_budget_detail.get('amount')}" name="amount" size="5" /></td>
+				<td><input type="text" th:value="${ask_budget_detail.get('payee')}" name="payee" size="20" /></td>
+				<td><input type="text" th:value="${ask_budget_detail.get('remark')}" name="remark" size="30" /></td>
 			</tr>
 		</table>
 		<span th:if="${#fields.hasErrors('purpose')}" th:errors="*{purpose}" style="color: red"></span>
 		
+		<br /> <br /> <br />
 		<input type="submit" value="変更" class="button"/>
 			<button type="button" class="button"
 				onclick="location.href='http://localhost:8080/budget'">キャンセル</button>
@@ -134,7 +135,13 @@
 			}
 
 		</script>
-
+		
+		<span th:each="ask_budget_content : ${ask_budget_content}" th:text="'予算：￥' + ${ask_budget_content.budget}" class="under"></span>
+		<span class="moji1">-</span> 
+		<span th:text="'合計：￥' + ${total}" class="under"></span> 
+		<span class="moji1">=</span> 
+		<span th:text="'残高：￥' + ${balance}" class="under"></span>
+		<br /> <br /> <br />
 		
 
 			<table>

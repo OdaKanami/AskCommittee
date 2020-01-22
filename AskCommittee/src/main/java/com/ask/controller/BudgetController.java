@@ -42,6 +42,18 @@ public class BudgetController {
 
 	@RequestMapping(value = "/budgetchange", method = RequestMethod.GET)
 	public String change(Model model) {
+		List<Map<String,Object>> contentList;
+		contentList = jdbcTemplate.queryForList("select * from ask_budget_content");
+		List<Map<String,Object>> detailList;
+		detailList = jdbcTemplate.queryForList("select * from ask_budget_detail");
+		int total = jdbcTemplate.queryForObject("select sum(amount) from ask_budget_detail", Integer.class);
+		int balance = jdbcTemplate.queryForObject("SELECT bc.budget - SUM(bd.amount) AS calk\r\n" + 
+				"FROM askdb.ask_budget_content bc ,askdb.ask_budget_detail bd\r\n" + 
+				"WHERE bc.id = bd.detail_id", Integer.class);
+		model.addAttribute("total", total);
+		model.addAttribute("balance", balance);
+		model.addAttribute("ask_budget_content", contentList);
+		model.addAttribute("ask_budget_detail", detailList);
 		model.addAttribute("budgetForm", new BudgetForm());
 		return "budgetchange";
 	}
