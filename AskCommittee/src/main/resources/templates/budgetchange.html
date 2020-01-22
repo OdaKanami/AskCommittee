@@ -46,14 +46,12 @@
 						+ '<option value="備品">備品</option>'
 						+ '<option value="交通">交通費</option>'
 						+ '<option value="その他">その他</option>' + '</select>';
-						
+
 				var row_amount = '￥<input type="text" name="amount" size="5"/>';
-				
+
 				var row_payee = '<input type="text" name="payee" size="20"/>';
-				
+
 				var row_remark = '<input type="text" name="remark" size="30"/>';
-				
-	
 
 				cell1.innerHTML = button;
 				cell2.innerHTML = row_budgetInfo;
@@ -71,52 +69,65 @@
 				tr.parentNode.deleteRow(tr.sectionRowIndex);
 			}
 		</script>
-		
-		<form method="post" action="#" th:action="@{/budgetconfirm}" th:object="${budgetForm}">
-		<table>
-			<tr th:each="ask_budget_content : ${ask_budget_content}">
-				<th>目的</th>
-				<td><input type="text" th:value="${ask_budget_content.get('purpose')}" name="purpose" /></td>
-				<th>日時</th>
-				<td><input type="date" th:value="${ask_budget_content.get('day')}" name="day" /></td>
-				<th>人数</th>
-				<td><input type="text" th:value="${ask_budget_content.get('numPeople')}" name="numPeople" size="10" />名</td>
-			</tr>
-		</table>
 
-		<table id="sample1_table">
-			<tr>
-				<th>行削除</th>
-				<th>内容</th>
-				<th>金額</th>
-				<th>支払先</th>
-				<th>備考</th>
-			<tr>
-			<tr th:each="ask_budget_detail : ${ask_budget_detail}">
-				<td nowrap><input type="button" value="削除"
-					onclick="deleteRow(this)" /></td>
-				<td><select th:value="${ask_budget_detail.get('budgetInfo')}" name="budgetInfo" required>
-						<option value="1">選択してください</option>
-						<option value="2">飲食</option>
-						<option value="3">アクティビティ</option>
-						<option value="4">備品</option>
-						<option value="5">交通費</option>
-				</select></td>
-				<td>￥<input type="text" th:value="${ask_budget_detail.get('amount')}" name="amount" size="5" /></td>
-				<td><input type="text" th:value="${ask_budget_detail.get('payee')}" name="payee" size="20" /></td>
-				<td><input type="text" th:value="${ask_budget_detail.get('remark')}" name="remark" size="30" /></td>
-			</tr>
-		</table>
-		<span th:if="${#fields.hasErrors('purpose')}" th:errors="*{purpose}" style="color: red"></span>
-		
-		<br /> <br /> <br />
-		<input type="submit" value="変更" class="button"/>
+		<form method="post" action="#" th:action="@{/budgetconfirm}"
+			th:object="${budgetForm}">
+			<table>
+				<tr th:each="ask_budget_content : ${ask_budget_content}">
+					<th>目的</th>
+					<td><input type="text"
+						th:value="${ask_budget_content.get('purpose')}" name="purpose" /></td>
+					<th>日時</th>
+					<td><input type="date"
+						th:value="${ask_budget_content.get('day')}" name="day" /></td>
+					<th>人数</th>
+					<td><input type="text"
+						th:value="${ask_budget_content.get('numPeople')}" name="numPeople"
+						size="10" />名</td>
+				</tr>
+			</table>
+
+			<table id="sample1_table">
+				<tr>
+					<th>行削除</th>
+					<th>内容</th>
+					<th>金額</th>
+					<th>支払先</th>
+					<th>備考</th>
+				<tr>
+				<tr th:each="ask_budget_detail : ${ask_budget_detail}">
+					<td nowrap><input type="button" value="削除"
+						onclick="deleteRow(this)" /></td>
+					<td><select th:value="${ask_budget_detail.get('budgetInfo')}"
+						name="budgetInfo" required>
+							<option value="1">選択してください</option>
+							<option value="2">飲食</option>
+							<option value="3">アクティビティ</option>
+							<option value="4">備品</option>
+							<option value="5">交通費</option>
+					</select></td>
+					<td>￥<input type="text"
+						th:value="${ask_budget_detail.get('amount')}" name="amount"
+						size="5" /></td>
+					<td><input type="text"
+						th:value="${ask_budget_detail.get('payee')}" name="payee"
+						size="20" /></td>
+					<td><input type="text"
+						th:value="${ask_budget_detail.get('remark')}" name="remark"
+						size="30" /></td>
+				</tr>
+			</table>
+			<br /> <br /> <input type="button" value="行追加" class="btn-flat-vertical-border"
+				onclick="insertRow('sample1_table')" /> <br /> <span
+				th:if="${#fields.hasErrors('purpose')}" th:errors="*{purpose}"
+				style="color: red"></span> <br /> <br /> <input type="submit"
+				value="変更" class="button" />
 			<button type="button" class="button"
 				onclick="location.href='http://localhost:8080/budget'">キャンセル</button>
 		</form>
-		<br /> <input type="button" value="行追加"
-			onclick="insertRow('sample1_table')" /> <br />
-		
+		<br />
+		<br />
+
 		<script type="text/javascript">
 			function keisan() {
 
@@ -127,44 +138,44 @@
 				var total = eval(price1) + eval(price2); //evalで数値に変換している　ParseIntとかでもできるらしい
 
 				document.form1.field_total.value = total; // 合計を表示
-				
+
 				//サンプルの場合は項目の数が静的で、name1,name2とつけれるから上記のように合計を出せるけど、
 				//動的な方はname[0]みたいな感じで値をとる必要がありそう　配列とか使って、追加した分だけ金額をループさせて合計するみたいな
 				//調べたら他にもいろいろ方法ありそうでしたが私は分かりませんでした＾＾
 
 			}
-
 		</script>
-		
-		<span th:each="ask_budget_content : ${ask_budget_content}" th:text="'予算：￥' + ${ask_budget_content.budget}" class="under"></span>
-		<span class="moji1">-</span> 
-		<span th:text="'合計：￥' + ${total}" class="under"></span> 
-		<span class="moji1">=</span> 
-		<span th:text="'残高：￥' + ${balance}" class="under"></span>
-		<br /> <br /> <br />
-		
 
-			<table>
-				<tr>
-					<th>項目</th>
-					<th>金額</th>
-				</tr>
-				<tr>
-					<td>サンプル1</td>
-					<td><input type="text" name="goods1" onChange="keisan()" value="0"></td>
-				</tr>
-				<tr>
-					<td>サンプル2</td>
-					<td><input type="text" name="goods2" onChange="keisan()" value="0"></td>
-				</tr>
-				<tr>
-					<td align="right"><strong>合計</strong></td>
-					<td><input type="text" name="field_total" size="8" value="0">
+		<span th:each="ask_budget_content : ${ask_budget_content}"
+			th:text="'予算：￥' + ${ask_budget_content.budget}" class="under"></span>
+		<span class="moji1">-</span> <span th:text="'合計：￥' + ${total}"
+			class="under"></span> <span class="moji1">=</span> <span
+			th:text="'残高：￥' + ${balance}" class="under"></span> <br /> <br /> <br />
+
+
+		<table>
+			<tr>
+				<th>項目</th>
+				<th>金額</th>
+			</tr>
+			<tr>
+				<td>サンプル1</td>
+				<td><input type="text" name="goods1" onChange="keisan()"
+					value="0"></td>
+			</tr>
+			<tr>
+				<td>サンプル2</td>
+				<td><input type="text" name="goods2" onChange="keisan()"
+					value="0"></td>
+			</tr>
+			<tr>
+				<td align="right"><strong>合計</strong></td>
+				<td><input type="text" name="field_total" size="8" value="0">
 					円</td>
-				</tr>
-			</table>
+			</tr>
+		</table>
 
-			<br /> <br />
+		<br /> <br />
 	</div>
 </body>
 </html>

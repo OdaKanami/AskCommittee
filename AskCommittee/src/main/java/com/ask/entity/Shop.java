@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
 import lombok.Data;
 
@@ -22,12 +24,14 @@ public class Shop implements Serializable{
 	private Integer id;
 	
 	@Column(name="name")
+	@NotBlank(message = "店名が未入力です")
 	private String name;
 	
 	@Column(name="url")
 	private String url;
 	
 	@Column(name="phone_number")
+	@Pattern(regexp = "0[0-9]{9,11}", message="電話番号を入力してください(ハイフンなし・半角)")
 	private String phone_number;
 	
 	@Column(name="remark")

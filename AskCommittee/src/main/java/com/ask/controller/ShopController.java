@@ -39,14 +39,18 @@ public class ShopController {
 	}
 
 	@RequestMapping(value = { "/shopregister" }, method = { RequestMethod.GET })
-	public String index(Model model) {
+	public String shopregister(Model model) {
 		model.addAttribute("shopRequest", new ShopRequest());
 		return "shopregister";
 	}
 
 	@RequestMapping(value = { "/add" }, method = { RequestMethod.POST })
-	public String create(@Validated @ModelAttribute ShopRequest shopRequest, BindingResult result,
+	public String regist(@Validated @ModelAttribute("shopRequest") ShopRequest shopRequest, BindingResult result,
 			Model model) {
+		
+		if (result.hasErrors()) {
+			return "shopregister";
+		}
 
 		shopService.create(shopRequest);
 		
@@ -63,15 +67,25 @@ public class ShopController {
 //	public String comple(Model model) {
 //		return "shopcomple";
 //	}
-//
-//	@RequestMapping(value = "/shopdelete", method = RequestMethod.GET)
-//	public String delete(Model model) {
-//		List<Map<String,Object>> list;
-//		list = jdbcTemplate.queryForList("select * from ask_shop");
-//		model.addAttribute("ask_shop", list);
-//		return "shopdelete";
-//	}
-//	
+
+	@RequestMapping(value = "/shopdelete", method = RequestMethod.GET)
+	public String shopdelete(Model model) {
+		List<Map<String,Object>> list;
+		list = jdbcTemplate.queryForList("select * from ask_shop");
+		model.addAttribute("ask_shop", list);
+		model.addAttribute("shopRequest", new ShopRequest());
+		return "shopdelete";
+	}
+	
+	@RequestMapping(value = { "/delete" }, method = { RequestMethod.POST })
+	public String delete(@Validated @ModelAttribute ShopRequest shopRequest, BindingResult result,
+			Model model) {
+
+		shopService.delete(shopRequest);
+		
+		return "redirect:/shop";
+	}
+	
 //	@RequestMapping(value = "/shopdelete", method = RequestMethod.POST)
 //	public String deleteselect(@Validated @ModelAttribute("shopModel") ShopModel shopModel, BindingResult result, Model model) {
 //		if(result.hasErrors()) {
