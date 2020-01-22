@@ -77,13 +77,13 @@ public class ShopController {
 		return "shopdelete";
 	}
 	
-	@RequestMapping(value = { "/delete" }, method = { RequestMethod.POST })
-	public String delete(@Validated @ModelAttribute ShopRequest shopRequest, BindingResult result,
-			Model model) {
-
-		shopService.delete(shopRequest);
-		
-		return "redirect:/shop";
+//	@RequestMapping(value = { "/delete" }, method = { RequestMethod.POST })
+//	public String delete(@Validated @ModelAttribute ShopRequest shopRequest, BindingResult result,
+//			Model model) {
+//
+//		shopService.delete(shopRequest);
+//		
+//		return "redirect:/shop";
 	}
 	
 //	@RequestMapping(value = "/shopdelete", method = RequestMethod.POST)
