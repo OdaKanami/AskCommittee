@@ -84,7 +84,7 @@ public class ShopController {
 //		shopService.delete(shopRequest);
 //		
 //		return "redirect:/shop";
-	}
+//	}
 	
 //	@RequestMapping(value = "/shopdelete", method = RequestMethod.POST)
 //	public String deleteselect(@Validated @ModelAttribute("shopModel") ShopModel shopModel, BindingResult result, Model model) {
