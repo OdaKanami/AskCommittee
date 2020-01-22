@@ -22,7 +22,7 @@
 			<tr th:each="ask_shop : ${ask_shop}">
 				<td th:text="${ask_shop.get('name')}"></td>
 				<td><a th:href="@{${ask_shop.get('url')}}" th:text="${ask_shop.get('url')}"></a></td>
-				<td th:text="${ask_shop.get('phoneNumber')}"></td>
+				<td th:text="${ask_shop.get('phone_number')}"></td>
 				<td th:text="${ask_shop.get('remark')}"></td>
 			</tr>
 		</table>

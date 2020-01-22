@@ -35,13 +35,13 @@ public class ShopDao {
 		Integer id = (Integer) row.get("id");
 		String name = (String) row.get("name");
 		String url = (String) row.get("url");
-		String phoneNumber = (String) row.get("phoneNumber");
+		String phone_number = (String) row.get("phone_number");
 		String remark = (String) row.get("remark");
 		Shop shop = new Shop();
 		shop.setId(id);
 		shop.setName(name);
 		shop.setUrl(url);
-		shop.setPhoneNumber(phoneNumber);
+		shop.setPhone_number(phone_number);
 		shop.setRemark(remark);
 		return shop;		
 	}
@@ -57,8 +57,8 @@ public class ShopDao {
 	}
 	
 	public int insert(Shop shop) {
-		String sql = "INSERT INTO shop(name,url,phoneNumber,remark) VALUES(?,?,?,?):";
-		Object[] parameters = {shop.getName(), shop.getUrl(), shop.getPhoneNumber(), shop.getRemark()};
+		String sql = "INSERT INTO shop(name,url,phone_number,remark) VALUES(?,?,?,?):";
+		Object[] parameters = {shop.getName(), shop.getUrl(), shop.getPhone_number(), shop.getRemark()};
 		
 		TransactionStatus transactionStatus = null;
 		DefaultTransactionDefinition transactionDefinition = new DefaultTransactionDefinition();

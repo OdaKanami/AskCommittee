@@ -27,8 +27,8 @@ public class Shop implements Serializable{
 	@Column(name="url")
 	private String url;
 	
-	@Column(name="phoneNumber")
-	private String phoneNumber;
+	@Column(name="phone_number")
+	private String phone_number;
 	
 	@Column(name="remark")
 	private String remark;
@@ -51,11 +51,11 @@ public class Shop implements Serializable{
 	public void setUrl(String url) {
 		this.url = url;
 	}
-	public String getPhoneNumber() {
-		return phoneNumber;
+	public String getPhone_number() {
+		return phone_number;
 	}
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
+	public void setPhone_number(String phone_number) {
+		this.phone_number = phone_number;
 	}
 	public String getRemark() {
 		return remark;

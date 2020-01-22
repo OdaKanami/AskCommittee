@@ -13,7 +13,7 @@ public class ShopRequest implements Serializable {
 	
 	private String url;
 	
-	private String phoneNumber;
+	private String phone_number;
 	
 	private String remark;
 
@@ -41,12 +41,12 @@ public class ShopRequest implements Serializable {
 		this.url = url;
 	}
 
-	public String getPhoneNumber() {
-		return phoneNumber;
+	public String getPhone_number() {
+		return phone_number;
 	}
 
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
+	public void setPhone_number(String phone_number) {
+		this.phone_number = phone_number;
 	}
 
 	public String getRemark() {

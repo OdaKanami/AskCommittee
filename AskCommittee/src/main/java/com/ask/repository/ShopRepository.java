@@ -40,7 +40,7 @@ public interface ShopRepository extends JpaRepository<Shop, Long>, JpaSpecificat
 		Shop shop = new Shop();
 		shop.setName(shopRequest.getName());
 		shop.setUrl(shopRequest.getUrl());
-		shop.setPhoneNumber(shopRequest.getPhoneNumber());
+		shop.setPhone_number(shopRequest.getPhone_number());
 		shop.setRemark(shopRequest.getRemark());
 
 		return shop;
