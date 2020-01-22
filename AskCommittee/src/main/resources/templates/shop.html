@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/common"
+	layout:decorator="common">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>お店リスト</title>
@@ -9,26 +12,29 @@
 	<div align="center" id="container">
 		<h1>お店リスト</h1>
 		<p>お店候補</p>
-		<table border="1">
+		<table>
 			<tr>
 				<th>店名</th>
 				<th>URL</th>
 				<th>電話番号</th>
 				<th>備考</th>
 			</tr>
-			<tr>
-				<td><p th:each="ask_shop : ${ask_shop}" th:text="${ask_shop.get('name')}" /></td>
-				<td><p th:each="ask_shop : ${ask_shop}" th:text="${ask_shop.get('url')}" /></td>
-				<td><p th:each="ask_shop : ${ask_shop}" th:text="${ask_shop.get('phoneNumber')}" /></td>
-				<td><p th:each="ask_shop : ${ask_shop}" th:text="${ask_shop.get('remark')}" /></td>
+			<tr th:each="ask_shop : ${ask_shop}">
+				<td th:text="${ask_shop.get('name')}"></td>
+				<td><a th:href="@{${ask_shop.get('url')}}" th:text="${ask_shop.get('url')}"></a></td>
+				<td th:text="${ask_shop.get('phoneNumber')}"></td>
+				<td th:text="${ask_shop.get('remark')}"></td>
 			</tr>
 		</table>
-		<br /> <br /> <button type="button" class="button" onclick="location.href='http://localhost:8080/shopregister'">登録
+		<br /> <br />
+		<button type="button" class="button"
+			onclick="location.href='http://localhost:8080/shopregister'">登録
 		</button>
-		<button type="button" class="button" onclick="location.href='http://localhost:8080/shopdelete'">削除
-		</button><br /> <br />
-			<a href="https://www.asking.co.jp/" class="btn-flat-vertical-border">帰属意識を高めたくなった</a>
-			<br /> <br />
+		<button type="button" class="button"
+			onclick="location.href='http://localhost:8080/shopdelete'">削除
+		</button>
+		<br /> <br /> <a href="https://www.asking.co.jp/"
+			class="btn-flat-vertical-border">帰属意識を高めたくなった</a> <br /> <br />
 	</div>
 </body>
 </html>
