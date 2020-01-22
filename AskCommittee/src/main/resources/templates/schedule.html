@@ -7,7 +7,7 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-	<div align="center">
+	<div align="center" id="container">
 		<h1>スケジュール</h1>
 		<div id="calendar"></div>
 			<script type="text/javascript">
@@ -189,9 +189,8 @@
 		<button type="button" onclick="location.href='http://localhost:8080/schedule/register'">編集する</button>
 		<br/>
 		<br/>
-		<button type="button" onclick="location.href='https://www.asking.co.jp/'">帰属意識を高めてみる</button>
-		<br/>
-		<a th:href="@{/top}">Top</a>		
+		<a href="http://localhost:8080/top"
+			class="btn-circle-border-double">TOPページへ</a> <br /> <br />	
 	</div>
 	
 </body>
