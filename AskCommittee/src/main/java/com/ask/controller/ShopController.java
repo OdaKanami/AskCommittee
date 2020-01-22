@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import dto.ShopRequest;
+import com.ask.dto.ShopRequest;
 import com.ask.service.ShopService;
 
 @EnableAutoConfiguration
@@ -36,23 +36,23 @@ public class ShopController {
 		model.addAttribute("ask_shop", list);
 		return "shop";
 	}
-​
+
 	@RequestMapping(value = { "/shopregister" }, method = { RequestMethod.GET })
 	public String index(Model model) {
 		model.addAttribute("shopRequest", new ShopRequest());
 		return "shopregister";
 	}
-​
+
 	@RequestMapping(value = { "/add" }, method = { RequestMethod.POST })
 	public String create(@Validated @ModelAttribute ShopRequest shopRequest, BindingResult result,
 			Model model) {
-​
+
 		shopService.create(shopRequest);
 		
 		
 		return "redirect:/shop";
 	}
-​
+
 //	@RequestMapping(value = { "/shopconfirm" }, method = { RequestMethod.GET })
 //	public String shopconfirm2(Model model) {
 //		return "shopconfirm";

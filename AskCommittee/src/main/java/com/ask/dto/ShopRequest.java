@@ -1,32 +1,22 @@
-package model;
+package com.ask.dto;
 
 import java.io.Serializable;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
 
 import lombok.Data;
 
 @Data
-public class ShopModel implements Serializable{
+public class ShopRequest implements Serializable {
 	
-	@Id
-    @GeneratedValue	
 	private int id;
-
-	@NotBlank(message = "店名が未入力です")
+	
 	private String name;
 	
 	private String url;
 	
-	@Pattern(regexp = "0[0-9]{9,11}", message="電話番号を入力してください(ハイフンなし・半角)")
 	private String phoneNumber;
 	
 	private String remark;
-	
+
 	public int getId() {
 		return id;
 	}
@@ -66,16 +56,5 @@ public class ShopModel implements Serializable{
 	public void setRemark(String remark) {
 		this.remark = remark;
 	}
-	
-	public ShopModel(){
-		
-	}
-	
-	ShopModel(String name, String url, String phoneNumber, String remark){
-		this.name = name;
-		this.url = url;
-		this.phoneNumber = phoneNumber;
-		this.remark = remark;
-	}
-	
+
 }

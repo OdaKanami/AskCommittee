@@ -1,67 +1,81 @@
-package entity;
+package com.ask.model;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
 import lombok.Data;
 
-@Entity
 @Data
-@Table(name="ask_shop")
-public class Shop implements Serializable{
+public class ShopModel implements Serializable{
 	
 	@Id
-	@Column(name="id")
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
-	
-	@Column(name="name")
+    @GeneratedValue	
+	private int id;
+
+	@NotBlank(message = "店名が未入力です")
 	private String name;
 	
-	@Column(name="url")
 	private String url;
 	
-	@Column(name="phoneNumber")
+	@Pattern(regexp = "0[0-9]{9,11}", message="電話番号を入力してください(ハイフンなし・半角)")
 	private String phoneNumber;
 	
-	@Column(name="remark")
 	private String remark;
 	
-	public Integer getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+
+	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public String getUrl() {
 		return url;
 	}
+
 	public void setUrl(String url) {
 		this.url = url;
 	}
+
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}
+
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
+
 	public String getRemark() {
 		return remark;
 	}
+
 	public void setRemark(String remark) {
 		this.remark = remark;
 	}
-
+	
+	public ShopModel(){
+		
+	}
+	
+	ShopModel(String name, String url, String phoneNumber, String remark){
+		this.name = name;
+		this.url = url;
+		this.phoneNumber = phoneNumber;
+		this.remark = remark;
+	}
+	
 }

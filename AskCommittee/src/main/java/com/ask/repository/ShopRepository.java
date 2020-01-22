@@ -1,4 +1,4 @@
-package repository;
+package com.ask.repository;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
 
-import dto.ShopRequest;
-import entity.Shop;
+import com.ask.dto.ShopRequest;
+import com.ask.entity.Shop;
 
 /**
  * ユーザー情報 Repository

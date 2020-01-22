@@ -1,4 +1,4 @@
-package service;
+package com.ask.service;
 
 import java.util.Date;
 import java.util.List;
@@ -9,11 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
 
+import com.ask.dto.ShopRequest;
+import com.ask.entity.Shop;
+import com.ask.repository.ShopRepository;
 import com.sun.xml.fastinfoset.sax.Properties;
-
-import dto.ShopRequest;
-import entity.Shop;
-import repository.ShopRepository;
 
 @Service
 @ComponentScan("service")

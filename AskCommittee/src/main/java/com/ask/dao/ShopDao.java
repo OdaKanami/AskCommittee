@@ -1,4 +1,4 @@
-package dao;
+package com.ask.dao;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +11,7 @@ import org.springframework.transaction.TransactionException;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 
-import entity.Shop;
+import com.ask.entity.Shop;
 
 public class ShopDao {
 	
