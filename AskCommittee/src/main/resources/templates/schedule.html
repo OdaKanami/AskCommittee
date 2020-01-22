@@ -17,7 +17,7 @@
 					var year = current.getFullYear();
 					var month = current.getMonth() + 1;
 			 
-					//aカレンダーの表示
+					//カレンダーの表示
 					var wrapper = document.getElementById('calendar');
 					add_calendar(wrapper, year, month);
 				}
@@ -29,14 +29,14 @@
 				 * @param {number} month   - 月の指定
 				 */
 				function add_calendar(wrapper, year, month) {
-					//a現在カレンダーが追加されている場合は一旦削除する
+					//現在カレンダーが追加されている場合は一旦削除する
 					wrapper.textContent = null;
 				 
-				    // aカレンダーに表示する内容を取得
+				    // カレンダーに表示する内容を取得
 				    var headData = generate_calendar_header(wrapper, year, month);
 				    var bodyData = generate_month_calendar(year, month);
 				 
-				    // aカレンダーの要素を追加
+				    // カレンダーの要素を追加
 				    wrapper.appendChild(headData);
 				    wrapper.appendChild(bodyData);
 				}
@@ -48,7 +48,7 @@
 				 * @param {number} month   - 月の指定
 				 */
 				function generate_calendar_header(wrapper, year, month) {
-				    // a前月と翌月を取得
+				    // 前月と翌月を取得
 				    var nextMonth = new Date(year, (month - 1));
 				    nextMonth.setMonth(nextMonth.getMonth() + 1);
 				    var prevMonth = new Date(year, (month - 1));
@@ -58,30 +58,30 @@
 				    var cHeader = document.createElement('div');
 				    cHeader.className = 'calendar-header';
 				 
-				    // a見出しの追加
+				    // 見出しの追加
 				    var cTitle = document.createElement('div');
 				    cTitle.className = 'calendar-header__title';
 				    var cTitleText = document.createTextNode(year + '年' + month + '月');
 				    cTitle.appendChild(cTitleText);
 				    cHeader.appendChild(cTitle);
 				 
-				    // a前月ボタンの追加
+				    // 前月ボタンの追加
 				    var cPrev = document.createElement('button');
 				    cPrev.className = 'calendar-header__prev';
 				    var cPrevText = document.createTextNode('◀');
 				    cPrev.appendChild(cPrevText);
-				    // a前月ボタンをクリックした時のイベント設定
+				    // 前月ボタンをクリックした時のイベント設定
 				    cPrev.addEventListener('click', function() {
 				        add_calendar(wrapper, prevMonth.getFullYear(), (prevMonth.getMonth() + 1));
 				    }, false);
 				    cHeader.appendChild(cPrev);
 				 
-				    // a翌月ボタンの追加
+				    // 翌月ボタンの追加
 				    var cNext = document.createElement('button');
 				    cNext.className = 'calendar-header__next';
 				    var cNextText = document.createTextNode('▶');
 				    cNext.appendChild(cNextText);
-				    // a翌月ボタンをクリックした時のイベント設定
+				    // 翌月ボタンをクリックした時のイベント設定
 				    cNext.addEventListener('click', function() {
 				        add_calendar(wrapper, nextMonth.getFullYear(), (nextMonth.getMonth() + 1));
 				    }, false);
@@ -97,11 +97,11 @@
 				 */
 				function generate_month_calendar(year, month) {
 				    var weekdayData = ['日', '月', '火', '水', '木', '金', '土'];
-				    // aカレンダーの情報を取得
+				    // カレンダーの情報を取得
 				    var calendarData = get_month_calendar(year, month);
 				 
 				    var i = calendarData[0]['weekday']; // 初日の曜日を取得
-				    // aカレンダー上の初日より前を埋める
+				    // カレンダー上の初日より前を埋める
 				    while(i > 0) {
 				        i--;
 				        calendarData.unshift({
@@ -110,7 +110,7 @@
 				        });
 				    }
 				    var i = calendarData[calendarData.length - 1]['weekday']; // 末日の曜日を取得
-				    // aカレンダー上の末日より後を埋める
+				    // カレンダー上の末日より後を埋める
 				    while(i < 6) {
 				        i++;
 				        calendarData.push({
@@ -119,12 +119,12 @@
 				        });
 				    }
 				 
-				    // aカレンダーの要素を生成
+				    // カレンダーの要素を生成
 				    var cTable = document.createElement('table');
 				    cTable.className = 'calendar-table';
 				 
 				    var insertData = '';
-				    // a曜日部分の生成
+				    // 曜日部分の生成
 				    insertData += '<thead>';
 				    insertData += '<tr>';
 				    for (var i = 0; i < weekdayData.length; i++) {
@@ -160,7 +160,7 @@
 				 * @param {number} month - 月の指定
 				 */
 				function get_month_calendar(year, month) {
-				    var firstDate = new Date(year, (month - 1), 1); // a指定した年月の初日の情報
+				    var firstDate = new Date(year, (month - 1), 1); // 指定した年月の初日の情報
 				    var lastDay = new Date(year, (firstDate.getMonth() + 1), 0).getDate(); // 指定した年月の末日
 				    var weekday = firstDate.getDay(); // 指定した年月の初日の曜日
 				 
@@ -171,7 +171,7 @@
 				            day: i + 1,
 				            weekday: weekdayCount
 				        }
-				        // a曜日のカウントが6(土曜日)まできたら0(日曜日)に戻す
+				        // 曜日のカウントが6(土曜日)まできたら0(日曜日)に戻す
 				        if(weekdayCount >= 6) {
 				            weekdayCount = 0;
 				        } else {
@@ -181,11 +181,7 @@
 				    return calendarData;
 				}
 			</script>
-		
-		
-		
-
-		
+	
 		
 		<input type = "date">
 		
@@ -193,7 +189,9 @@
 		<button type="button" onclick="location.href='http://localhost:8080/schedule/register'">編集する</button>
 		<br/>
 		<br/>
-		<button type="button" onclick="location.href='https://www.asking.co.jp/'">帰属意識を高めてみる</button>		
+		<button type="button" onclick="location.href='https://www.asking.co.jp/'">帰属意識を高めてみる</button>
+		<br/>
+		<a th:href="@{/top}">Top</a>		
 	</div>
 	
 </body>

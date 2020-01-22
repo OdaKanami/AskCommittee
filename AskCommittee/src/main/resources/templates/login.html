@@ -9,26 +9,28 @@
 	<div align="center" id="container">
 
 		<h1>ログイン画面</h1>
-		<table border="1">
-<!-- 		<tr>
-				<th>UserName</th>
-				<td><input type="text" name="name" size="40" /></td>
-			</tr>
-			<tr>
-				<th>PassWord</th>
-				<td><input type="password" name="name" size="40" /></td>
-			</tr>
- -->
-			<form th:action="@{/signin}" method="post">
-				<input type="text" name="id">id
-				<br/>
-				<input type="password" name="password">password
-				<br/>
-				<input type="submit" value="Login">
-			</form>
+		<div th:if="${param.logout}">
+			<p>ログアウトしました</p>
+		</div>
+		<div th:if="${param.error}">
+			<p>ユーザー名またはパスワードが違います</p>
+		</div>
+		
+		<form th:action="@{/top}" method="post">
+		<table>
+ 		<tr>
+			<th>UserName</th>
+			<td><input type="text" name="username" size="40" /></td>
+		</tr>
+
+		<tr>
+			<th>PassWord</th>
+			<td><input type="password" name="password" size="40" /></td>
+		</tr>
 		</table>
 		<br /> <input type="submit" value="Login" class="button">
-
+		</form>
+		<br />
 		<hr />
 	</div>
 </body>

@@ -12,19 +12,19 @@
 <div layout:fragment="content">
 	<div id="container">
 		<header>
-			<img src="https://www.asking.co.jp/images/common/logo.png"
-				alt="株式会社アスキング">
+			<a href="https://www.asking.co.jp/">
+				<img src="https://www.asking.co.jp/images/common/logo.png" alt="株式会社アスキング">
+			</a>
 		</header>
 		<div align="center">
 			<h1>AskCommittee</h1>
-			<p
-				th:text="AskCommitteeは株式会社アスキング北九州LABの委員会（天地会・設備会）活動を記録・管理するものである。" />
+			<p th:text="AskCommitteeは株式会社アスキング北九州LABの委員会（天地会・設備会）活動を記録・管理するものである。" />
 			<p>じゅんびちゅう</p>
-			<button type="button"
-				onclick="location.href='http://localhost:8080/schedule'">とりまスケジュール</button>
-			<br /> <br />
-			<button type="button"
-				onclick="location.href='https://www.asking.co.jp/'">帰属意識を高めてみる</button>
+			<a th:href="@{/schedule}">schedule</a>
+			<a th:href="@{/budget}">budget</a>
+			<a th:href="@{/shop}">shop</a>			
+			<a th:href="@{/member}">member</a>
+
 			<br /> <br />
 			<a href="http://localhost:8080/login">logout</a>	
 				
