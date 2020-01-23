@@ -42,7 +42,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http
 		    .authorizeRequests()
 	    		.antMatchers("/register").permitAll()
-	    		.antMatchers("/withdraw").permitAll()			    
+	    		.antMatchers("/registerconfirm").permitAll()
+	    		.antMatchers("/registercomple").permitAll()	    		
+	    		.antMatchers("/withdraw").permitAll()
+	    		.antMatchers("/withdrawconfirm").permitAll()
+	    		.antMatchers("/withdrawcomple").permitAll()	    		
 		        .anyRequest().authenticated()
 		        .and()
 		    .formLogin()

@@ -17,7 +17,7 @@ public class LoginUserDao {
 		String query = "";
 		query += "SELECT * ";
 		query += "FROM Ask_member ";
-		query += "WHERE username = :userName ";
+		query += "WHERE email = :userName ";
 		
 		//EntityManagerで取得された結果はオブジェクトとなるので、LoginUser型へキャストが必要となる
 		return (LoginUser)em.createNativeQuery(query, LoginUser.class).setParameter("userName", userName)

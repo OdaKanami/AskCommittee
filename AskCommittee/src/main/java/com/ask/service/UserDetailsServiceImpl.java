@@ -52,7 +52,7 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		
 		//UserDetailsはインタフェースなのでUserクラスのコンストラクタで生成したユーザオブジェクトを
-		UserDetails userDetails = (UserDetails)new User(user.getUsername(), encoder.encode(user.getPassword()),grantList);
+		UserDetails userDetails = (UserDetails)new User(user.getEmail(), encoder.encode(user.getPassword()),grantList);
 		
 		return userDetails;
 	}

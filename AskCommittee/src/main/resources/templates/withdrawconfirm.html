@@ -2,26 +2,25 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<meta charset="UTF-8">
-<title>退会</title>
+<title>退会確認</title>
 <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 	<div align="center" id="container">
-		<h1>退会手続き</h1>
-		
-		<table>
+		<h1>退会確認</h1>
+				<table>
 		<tr>
 			<th>ユーザー名</th>
-			<td><input type="text" name="email" size="40" /></td>
+			<td>xxxx@asking.co.jp</td>
 		</tr>
 		<tr>
 			<th>パスワード</th>
-			<td><input type="text" name="password" size="40" /></td>
+			<td>xxxx</td>
 		</tr>	
 		</table>
 		<br />
-		<a th:href="@{/withdrawconfirm}">確認画面へ</a>
+		<a th:href="@{/withdraw}">戻る</a>
+		<a th:href="@{/withdrawcomple}">退会</a>
 		<br />
 		<br />
 		

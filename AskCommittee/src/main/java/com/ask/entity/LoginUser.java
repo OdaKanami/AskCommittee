@@ -21,9 +21,7 @@ public class LoginUser {
 	
 	@Column(name = "password")	
 	private String password;
-	
-	@Column(name = "username")	
-	private String username;
+
 	
 
 	public Integer getId() {
@@ -50,13 +48,5 @@ public class LoginUser {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
 	
 }
