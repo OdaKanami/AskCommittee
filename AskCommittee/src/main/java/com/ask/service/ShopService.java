@@ -27,7 +27,6 @@ public class ShopService {
 
 	/**
 	 * お店情報 全検索
-	 * @return 検索結果
 	 */
 	public List<Shop> searchAll() {
 		return shopRepository.searchAll();
@@ -35,10 +34,15 @@ public class ShopService {
 
 	/**
 	 * お店情報新規登録
-	 * @param user ユーザー情報
 	 */
 	public void create(ShopRequest shopRequest) {
 		shopRepository.create(shopRequest);
 	}
 
+	/**
+	 * お店削除
+	 */
+	public void delete(ShopRequest shopRequest) {
+		shopRepository.deleteAll();
+	}
 }

@@ -45,4 +45,28 @@ public interface ShopRepository extends JpaRepository<Shop, Long>, JpaSpecificat
 
 		return shop;
 	}
+	
+	/**
+	 * お店削除
+	 * @param user ユーザー情報
+	 */
+	public default void delete(ShopRequest shopRequest) {
+		this.delete(CreateShop(shopRequest));
+	}
+
+	/**
+	 * お店TBLエンティティの生成
+	 * @param shopRequest お店情報リクエストデータ
+	 * @return お店TBLエンティティ
+	 */
+	public default Shop DeleteShop(ShopRequest shopRequest) {
+
+		Shop shop = new Shop();
+		shop.setName(shopRequest.getName());
+		shop.setUrl(shopRequest.getUrl());
+		shop.setPhone_number(shopRequest.getPhone_number());
+		shop.setRemark(shopRequest.getRemark());
+
+		return shop;
+	}
 }

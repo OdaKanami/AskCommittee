@@ -8,6 +8,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 import java.util.Map;
@@ -89,7 +90,7 @@ public class BudgetController {
 //			e.printStackTrace();
 //		}
 //		return "budget";	
-//	}
+//	}	 
 
 	@RequestMapping(value = "/budgetchange", method = RequestMethod.GET)
 	public String change(Model model) {
@@ -106,7 +107,7 @@ public class BudgetController {
 		model.addAttribute("ask_budget_content", contentList);
 		model.addAttribute("ask_budget_detail", detailList);
 		model.addAttribute("budgetForm", new BudgetForm());
-		return "budgetchange";
+		return "budgetchange";		
 	}
 
 	@RequestMapping(value = "/budgetconfirm", method = RequestMethod.POST)
@@ -118,7 +119,7 @@ public class BudgetController {
 		
 		return "budgetconfirm";
 	}
-
+	
 	@RequestMapping(value = "/budgetconfirm", method = RequestMethod.GET)
 	public String budgetconfirm(Model model) {
 		model.addAttribute("budgetForm", new BudgetForm());

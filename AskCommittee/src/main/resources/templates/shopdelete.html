@@ -8,28 +8,43 @@
 <body>
 	<div align="center" id="container">
 		<h1>お店削除</h1>
-		<p th:text="削除するお店を選んでください"></p>
-		<form method="post" action="#" th:action="@{/shopdeleteconfirm}" th:object="${shopModel}">
-		<table>
-			<tr>
-				<th>削除</th>
-				<th>店名</th>
-				<th>URL</th>
-				<th>電話番号</th>
-				<th>備考</th>
-			</tr>
-			<tr th:each="ask_shop : ${ask_shop}">
-				<td><input type="checkbox"></td>
-				<td th:text="${ask_shop.get('name')}"></td>
-				<td th:text="${ask_shop.get('url')}"></td>
-				<td th:text="${ask_shop.get('phone_number')}"></td>
-				<td th:text="${ask_shop.get('remark')}"></td>
-			</tr>
-		</table>
+		<p th:text="削除するお店を選んでください" class="moji1"></p>
+		<form method="post" action="#" th:action="@{/delete}"
+			th:object="${shopRequest}" name="sampleform">
+			<table>
+				<tr>
+					<th>削除</th>
+					<th>店名</th>
+					<th>URL</th>
+					<th>電話番号</th>
+					<th>備考</th>
+				</tr>
+				<tr th:each="ask_shop : ${ask_shop}">
+					<td><input type="checkbox"></td>
+					<td th:text="${ask_shop.get('name')}"></td>
+					<td th:text="${ask_shop.get('url')}"></td>
+					<td th:text="${ask_shop.get('phone_number')}"></td>
+					<td th:text="${ask_shop.get('remark')}"></td>
+				</tr>
+			</table>
 		</form>
-		<br /> <br /> <input type="submit" value="削除" class="button"/>
-		<br /> <br /> <a href="https://www.asking.co.jp/"
-			class="btn-flat-vertical-border">帰属意識を高めたくなった</a> <br /> <br />
+
+		<script>
+		function allcheck( tf ) {
+			   var ElementsCount = document.sampleform.elements.length; // チェックボックスの数
+			   for( i=0 ; i<ElementsCount ; i++ ) {
+			      document.sampleform.elements[i].checked = tf; // ON・OFFを切り替え
+			   }
+			}
+		</script>
+
+		<p>
+			<input type="button" value="全選択" class="btn-flat-vertical-border" onclick="allcheck(true);">
+			<input type="button" value="全削除" class="btn-flat-vertical-border" onclick="allcheck(false);">
+		</p>
+
+		<br /> <br /> <input type="submit" value="削除" class="button" /> <br />
+		<br /><br /> <br />
 	</div>
 </body>
 </html>

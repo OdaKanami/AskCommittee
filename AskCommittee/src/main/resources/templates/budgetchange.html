@@ -76,7 +76,7 @@
 				<tr th:each="ask_budget_content : ${ask_budget_content}">
 					<th>目的</th>
 					<td><input type="text"
-						th:value="${ask_budget_content.get('purpose')}" name="purpose" /></td>
+						th:value="${ask_budget_content.get('purpose')}" th:errorclass="fieldError" name="purpose" /></td>
 					<th>日時</th>
 					<td><input type="date"
 						th:value="${ask_budget_content.get('day')}" name="day" /></td>
