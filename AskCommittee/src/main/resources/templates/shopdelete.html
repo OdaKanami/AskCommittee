@@ -10,41 +10,35 @@
 		<h1>お店削除</h1>
 		<p th:text="削除するお店を選んでください" class="moji1"></p>
 		<form method="post" action="#" th:action="@{/delete}"
-			th:object="${shopRequest}" name="sampleform">
+			th:object="${shopRequest}">
 			<table>
 				<tr>
-					<th>削除</th>
 					<th>店名</th>
 					<th>URL</th>
 					<th>電話番号</th>
 					<th>備考</th>
+					<th>削除</th>
 				</tr>
 				<tr th:each="ask_shop : ${ask_shop}">
-					<td><input type="checkbox"></td>
 					<td th:text="${ask_shop.get('name')}"></td>
 					<td th:text="${ask_shop.get('url')}"></td>
 					<td th:text="${ask_shop.get('phone_number')}"></td>
 					<td th:text="${ask_shop.get('remark')}"></td>
+					<td><form method="post" action="#" th:action="@{/delete}" th:object="${shopRequest}">
+							<input type="hidden" name="id" th:value="${ask_shop.get('id')}" /><input
+								type="submit" th:value="削除" />
+						</form></td>
 				</tr>
 			</table>
 		</form>
 
-		<script>
-		function allcheck( tf ) {
-			   var ElementsCount = document.sampleform.elements.length; // チェックボックスの数
-			   for( i=0 ; i<ElementsCount ; i++ ) {
-			      document.sampleform.elements[i].checked = tf; // ON・OFFを切り替え
-			   }
-			}
-		</script>
-
-		<p>
-			<input type="button" value="全選択" class="btn-flat-vertical-border" onclick="allcheck(true);">
-			<input type="button" value="全削除" class="btn-flat-vertical-border" onclick="allcheck(false);">
-		</p>
-
-		<br /> <br /> <input type="submit" value="削除" class="button" /> <br />
-		<br /><br /> <br />
+		<br /> <br /> <button type="button" class="button"
+				onclick="location.href='http://localhost:8080/shop'">キャンセル</button>
+		<br />
+		<br /> <br /> <a href="http://localhost:8080/top"
+			class="btn-circle-border-double">TOPページへ</a> <br />
+		<br />
+		<br />
 	</div>
 </body>
 </html>

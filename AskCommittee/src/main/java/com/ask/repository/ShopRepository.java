@@ -51,7 +51,7 @@ public interface ShopRepository extends JpaRepository<Shop, Long>, JpaSpecificat
 	 * @param user ユーザー情報
 	 */
 	public default void delete(ShopRequest shopRequest) {
-		this.delete(CreateShop(shopRequest));
+		this.delete(DeleteShop(shopRequest));
 	}
 
 	/**
@@ -62,6 +62,7 @@ public interface ShopRepository extends JpaRepository<Shop, Long>, JpaSpecificat
 	public default Shop DeleteShop(ShopRequest shopRequest) {
 
 		Shop shop = new Shop();
+		shop.setId(shopRequest.getId());
 		shop.setName(shopRequest.getName());
 		shop.setUrl(shopRequest.getUrl());
 		shop.setPhone_number(shopRequest.getPhone_number());
