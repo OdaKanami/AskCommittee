@@ -43,6 +43,6 @@ public class ShopService {
 	 * お店削除
 	 */
 	public void delete(ShopRequest shopRequest) {
-		shopRepository.deleteAll();
+		shopRepository.delete(shopRequest);
 	}
 }

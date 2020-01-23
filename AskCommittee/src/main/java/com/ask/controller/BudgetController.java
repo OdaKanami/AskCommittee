@@ -47,7 +47,7 @@ public class BudgetController {
 		model.addAttribute("total", total);
 		model.addAttribute("balance", balance);
 		model.addAttribute("ask_budget_content", contentList);
-		model.addAttribute("ask_budget_detail", detailList);
+		model.addAttribute("ask_budget_detail", detailList);		
 		return "budget";
 	}
 	
