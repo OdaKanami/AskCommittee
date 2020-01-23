@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta charset="UTF-8">
+<title>登録確認</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<div align="center" id="container">
+		<h1>登録確認</h1>
+		
+		<table>
+		<tr>
+			<th>社員番号</th>
+			<td>2019xxx</td>
+		</tr>
+		<tr>
+			<th>名前</th>
+			<td>xxxx</td>
+		</tr>	
+		<tr>
+			<th>メールアドレス</th>
+			<td>xxxx@asking.co.jp</td>
+		</tr>
+		<tr>
+			<th>備考</th>
+			<td>xxxx</td>
+		</tr>
+		</table>
+	
+		<p>上記の内容で登録します。よろしいでしょうか？</p>
+		<a th:href="@{/register}">戻る</a>
+		<a th:href="@{/registercomple}">登録</a>
+	</div>
+
+</body>
+</html>
