@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>スケジュール</title>
-<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">	
 </head>
 <body>
 	<div align="center" id="container">
+		<div class="cmt_logo">
+			<a th:href="@{/top}">
+				<img src="img/cmt_logo.png" alt="AskCommittee" />
+			</a>
+		</div>
+
 		<h1>スケジュール</h1>
 		<div id="calendar"></div>
 			<script type="text/javascript">

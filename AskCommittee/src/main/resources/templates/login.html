@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>ログイン画面</title>
-<link rel="stylesheet" type="text/css" href="css/style.css">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>ログイン画面</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 	<div align="center" id="container">
-
+		<div class="cmt_logo">
+			<a th:href="@{/login}">
+				<img src="img/cmt_logo.png" alt="AskCommittee" />
+			</a>
+		</div>
 		<h1>ログイン画面</h1>
 		<div th:if="${param.logout}">
 			<p>ログアウトしました</p>
