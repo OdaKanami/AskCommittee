@@ -15,17 +15,17 @@ private String scheduleview(Model model){
 return "schedule";
 }
 
-@RequestMapping(value="/schedule/register", method = RequestMethod.GET)
+@RequestMapping(value="/scheduleregister", method = RequestMethod.GET)
 private String register(Model model){
 return "scheduleregister";
 }
 
-@RequestMapping(value="/schedule/confirm", method = RequestMethod.GET)
+@RequestMapping(value="/scheduleconfirm", method = RequestMethod.GET)
 private String confirm(Model model){
 return "scheduleconfirm";
 }
 
-@RequestMapping(value="/schedule/comple", method = RequestMethod.GET)
+@RequestMapping(value="/schedulecomple", method = RequestMethod.GET)
 private String comple(Model model){
 return "schedulecomple";
 }
