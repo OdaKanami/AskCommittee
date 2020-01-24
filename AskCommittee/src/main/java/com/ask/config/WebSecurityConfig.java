@@ -44,17 +44,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	    		.antMatchers("/register").permitAll()
 	    		.antMatchers("/registerconfirm").permitAll()
 	    		.antMatchers("/registercomple").permitAll()	    		
-	    		.antMatchers("/withdraw").permitAll()
-	    		.antMatchers("/withdrawconfirm").permitAll()
-	    		.antMatchers("/withdrawcomple").permitAll()	    		
 		        .anyRequest().authenticated()
 		        .and()
 		    .formLogin()
 		        .loginPage("/login") //ログインページはコントローラを経由しないのでViewNameとの紐付けが必要
-		        .loginProcessingUrl("/top") //フォームのSubmitURL、このURLへリクエストが送られると認証処理が実行される
+		        .loginProcessingUrl("/sign_in") //フォームのSubmitURL、このURLへリクエストが送られると認証処理が実行される
 		        .usernameParameter("username") //リクエストパラメータのname属性を明示
 		        .passwordParameter("password")
-		        .successForwardUrl("/top")
+		        .defaultSuccessUrl("/top", true)
+		        //.successForwardUrl("/top")
 		        .failureUrl("/login?error")
 		        .permitAll()
 		        .and()

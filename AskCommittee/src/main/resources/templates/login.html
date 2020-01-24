@@ -20,7 +20,7 @@
 			<p>ユーザー名またはパスワードが違います</p>
 		</div>
 		
-		<form th:action="@{/top}" method="post">
+		<form th:action="@{/sign_in}" method="post">
 		<table>
  		<tr>
 			<th>UserName</th>
@@ -36,7 +36,6 @@
 		</form>
 		<br />
 		<a th:href="@{/register}">登録</a>
-		<a th:href="@{/withdraw}">退会</a>
 		<hr />
 	</div>
 </body>

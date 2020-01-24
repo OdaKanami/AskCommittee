@@ -28,7 +28,10 @@
 			<a th:href="@{/album}">album</a>			
 
 			<br /> <br />
-			<a href="http://localhost:8080/login">logout</a>
+			<form method="post" th:action="@{/logout}">
+				<input type="submit" value="logout" class="button">
+			</form>
+			<a th:href="@{/withdraw}">退会</a>
 				
 		</div>
 		
