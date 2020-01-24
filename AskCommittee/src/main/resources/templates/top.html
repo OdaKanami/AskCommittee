@@ -11,13 +11,13 @@
 </head>
 <body>
 <div layout:fragment="content">
-	<div align="center" id="container">
+	<div id="container" >
 		<div class="cmt_logo">
 			<a href="https://www.asking.co.jp/">
 				<img src="img/asking_logo.png" alt="株式会社アスキング"/>
 			</a>
 		</div>
-
+		<div align="center">
 			<h1>AskCommittee</h1>
 			<p th:text="AskCommitteeは株式会社アスキング北九州LABの委員会（天地会・設備会）活動を記録・管理するものである。" />
 			
@@ -25,9 +25,10 @@
 			<a th:href="@{/budget}">budget</a>
 			<a th:href="@{/shop}">shop</a>			
 			<a th:href="@{/member}">member</a>
+			<a th:href="@{/album}">album</a>			
 
 			<br /> <br />
-			<a href="http://localhost:8080/login">logout</a>	
+			<a href="http://localhost:8080/login">logout</a>
 				
 		</div>
 		
@@ -44,5 +45,6 @@
 			</p>
 		</footer>
 	</div>
+</div>	
 </body>
 </html>
