@@ -15,23 +15,24 @@
 		<h1>お店登録確認</h1>
 		<br />
 		<p class="moji1">以下のお店を登録します。よろしいですか？</p>
-		<form method="post" action="/shopconfirm">
+		<form method="post" action="#" th:action="@{/add}" th:object="${shopRequest}">
 		<span>店名: </span>
-		<span th:text="${shopModel.name}"></span>
+		<span th:text="${shopRequest.name}"></span>
 		<br />
 		<span>URL: </span>
-		<span th:text="${shopModel.url}"></span>
+		<span th:text="${shopRequest.url}"></span>
 		<br />
 		<span>電話番号: </span>
-		<span th:text="${shopModel.phone_number}"></span>
+		<span th:text="${shopRequest.phone_number}"></span>
 		<br />
 		<span>備考: </span>
-		<span th:text="${shopModel.remark}"></span>
+		<span th:text="${shopRequest.remark}"></span>
 		<br />
-		</form>
-		<br /> <br /> <button type="button" class="button" onclick="location.href='http://localhost:8080/shopcomple'">はい</button>
+		<br /> <br /><input type="submit" value="はい" class="button"/>
 		<button type="button" class="button" onclick="location.href='http://localhost:8080/shopregister'">いいえ</button>
+		</form>
 			<br /> <br />
 	</div>
 </body>
 </html>
+

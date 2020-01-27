@@ -15,7 +15,7 @@
 		<h1>お店登録</h1>
 		<p class="moji1">登録したいお店を入力してください</p>
 		<p style="color: red">※　*は入力必須項目です</p>
-		<form method="post" action="#" th:action="@{/add}" th:object="${shopRequest}">
+		<form method="post" action="#" th:action="@{/shopconfirm}" th:object="${shopRequest}">
 		<table>
 		<tr>
 		<th>店名*</th>
@@ -46,7 +46,6 @@
 		</form>
 		<br />
 		<br />
-		<a href="https://www.asking.co.jp/" class="btn-flat-vertical-border">帰属意識を高めよう</a>
 	</div>
 </body>
 </html>
