@@ -15,6 +15,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.ask.dto.ShopRequest;
 import com.ask.service.ShopService;
@@ -22,6 +23,7 @@ import com.ask.service.ShopService;
 @EnableAutoConfiguration
 @Controller
 @ComponentScan
+@SessionAttributes({"shopRequest"})
 public class ShopController {
 	
 	@Autowired
@@ -30,6 +32,7 @@ public class ShopController {
 	@Autowired
 	JdbcTemplate jdbcTemplate;
 	
+	//お店トップ表示
 	@RequestMapping(value = "/shop", method = RequestMethod.GET)
 	public String shopview(Model model) {
 		List<Map<String,Object>> list;
@@ -38,31 +41,44 @@ public class ShopController {
 		return "shop";
 	}
 
-	@RequestMapping(value = { "/shopregister" }, method = { RequestMethod.GET })
+	//登録画面表示
+	@RequestMapping(value = { "/shopregister" }, method = RequestMethod.GET)
 	public String shopregister(Model model) {
 		model.addAttribute("shopRequest", new ShopRequest());
 		return "shopregister";
 	}
 
-	@RequestMapping(value = { "/add" }, method = { RequestMethod.POST })
-	public String regist(@Validated @ModelAttribute("shopRequest") ShopRequest shopRequest, BindingResult result,
-			Model model) {
+	//確認画面に値渡す
+	@RequestMapping(value = { "/shopconfirm" }, method = RequestMethod.POST)
+	public String shopconfirm(@Validated @ModelAttribute("shopRequest") ShopRequest shopRequest, BindingResult result, Model model) {
 		
 		if (result.hasErrors()) {
-			return "shopregister";
+            return "shopregister";
+            }
+		
+		return "shopconfirm";
+	}
+	
+	@RequestMapping(value = {"/shopconfirm"}, method = {RequestMethod.GET})
+	public String shopconfirm2(Model model) {
+		return "shopconfirm";
+	}
+	
+	//登録処理
+		@RequestMapping(value = { "/add" }, method = RequestMethod.POST)
+		public String regist(@Validated @ModelAttribute("shopRequest") ShopRequest shopRequest, BindingResult result,
+				Model model) {
+			
+			if (result.hasErrors()) {
+				return "shopregister";
+			}
+
+			shopService.create(shopRequest);
+			
+			
+			return "redirect:/shop";
 		}
 
-		shopService.create(shopRequest);
-		
-		
-		return "redirect:/shop";
-	}
-
-//	@RequestMapping(value = { "/shopconfirm" }, method = { RequestMethod.GET })
-//	public String shopconfirm2(Model model) {
-//		return "shopconfirm";
-//	}
-//
 //	@RequestMapping(value = "/shopcomple", method = RequestMethod.GET)
 //	public String comple(Model model) {
 //		return "shopcomple";
@@ -77,6 +93,22 @@ public class ShopController {
 		return "shopdelete";
 	}
 	
+	@RequestMapping(value = "/shopdeleteconfirm", method = RequestMethod.GET)
+	public String confirm(Model model) {
+		return "shopdeleteconfirm";
+	}
+	
+	@RequestMapping(value = { "/shopdeleteconfirm" }, method = { RequestMethod.POST })
+	public String shopdeleteconfirm(@Validated @ModelAttribute("shopRequest") ShopRequest shopRequest, BindingResult result,
+			Model model) {
+
+		if (result.hasErrors()) {
+			return "shopdelete";
+		}
+
+		return "shopdeleteconfirm";
+	}
+	
 	@RequestMapping(value = { "/delete" }, method = { RequestMethod.POST })
 	public String delete(@Validated @ModelAttribute ShopRequest shopRequest, BindingResult result,
 			Model model) {
@@ -85,33 +117,7 @@ public class ShopController {
 		
 		return "redirect:/shop";
 	}
-	
-//	@RequestMapping(value = "/shopdelete", method = RequestMethod.POST)
-//	public String deleteselect(@Validated @ModelAttribute("shopModel") ShopModel shopModel, BindingResult result, Model model) {
-//		if(result.hasErrors()) {
-//			return "shopdelete";
-//		}
-//		
-//		
-//		return "redirect:/shopdeleteconfirm";
-//	}
-//
-//	@RequestMapping(value = "/shopdeleteconfirm", method = RequestMethod.GET)
-//	public String confirm(Model model) {
-//		return "shopdeleteconfirm";
-//	}
-//	
-//	@RequestMapping(value = { "/shopdeleteconfirm" }, method = { RequestMethod.POST })
-//	public String shopdeleteconfirm(@Validated @ModelAttribute("shopModel") ShopModel shopModel, BindingResult result,
-//			Model model) {
-//
-//		if (result.hasErrors()) {
-//			return "shopdelete";
-//		}
-//
-//		return "shopdeleteconfirm";
-//	}
-//
+
 //	@RequestMapping(value = "/shopdeletecomple", method = RequestMethod.GET)
 //	public String deletecomple(Model model) {
 //		return "shopdeletecomple";

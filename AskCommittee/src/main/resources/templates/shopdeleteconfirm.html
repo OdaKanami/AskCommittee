@@ -15,7 +15,7 @@
 		<h1>お店削除確認</h1>
 		<br />
 		<p>以下のお店を削除します。よろしいですか？</p>
-		<form method="post" action="#" th:action="@{/shopdeleteconfirm}" th:object="${shopModel}">
+		<form method="post" action="#" th:action="@{/delete}" th:object="${shopRequest}">
 		<span>店名: </span>
 		<span th:text="${name}"></span>
 		<br />
@@ -29,7 +29,7 @@
 		<span th:text="${remark}"></span>
 		<br />
 		</form>
-		<br /> <br /> <button type="button" class="button" onclick="location.href='http://localhost:8080/shopcomple'">はい</button>
+		<br /> <br /> <input type="submit" value="はい" class="button"/>
 		<button type="button" class="button" onclick="location.href='http://localhost:8080/shopregister'">いいえ</button>
 			<br /> <br />
 		<button type="button"

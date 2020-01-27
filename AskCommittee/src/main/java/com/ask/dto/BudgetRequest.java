@@ -1,16 +1,16 @@
-package com.ask.form;
+package com.ask.dto;
 
 import java.io.Serializable;
 
 import javax.validation.constraints.NotBlank;
 
-public class BudgetForm implements Serializable{
+public class BudgetRequest implements Serializable{
 	
 	@NotBlank(message = "目的が未入力です")
 	private String purpose;
 	
 	private String day;
-	private int numPeople;
+	private int num_people;
 	private String budgetInfo;
 	private int amount;
 	private String payee;
@@ -27,11 +27,11 @@ public class BudgetForm implements Serializable{
 	public void setDay(String day) {
 		this.day = day;
 	}
-	public int getNumPeople() {
-		return numPeople;
+	public int getNum_people() {
+		return num_people;
 	}
-	public void setNumPeople(int numPeople) {
-		this.numPeople = numPeople;
+	public void setNum_people(int num_people) {
+		this.num_people = num_people;
 	}
 	public String getBudgetInfo() {
 		return budgetInfo;
