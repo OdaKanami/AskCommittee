@@ -14,7 +14,7 @@
 		</div>
 		<h1>お店削除</h1>
 		<p th:text="削除するお店を選んでください" class="moji1"></p>
-		<form method="post" action="#" th:action="@{/shopdeleteconfirm}"
+		<form method="post" action="#" th:action="@{/delete}"
 			th:object="${shopRequest}">
 			<table>
 				<tr>
@@ -25,20 +25,29 @@
 					<th>削除</th>
 				</tr>
 				<tr th:each="ask_shop : ${ask_shop}">
-					<td th:text="${ask_shop.get('name')}" th:name="name"
-						th:field="*{name}"></td>
-					<td th:text="${ask_shop.get('url')}" th:name="url"
-						th:field="*{url}"></td>
-					<td th:text="${ask_shop.get('phone_number')}"
-						th:name="phone_number" th:field="*{phone_number}"></td>
-					<td th:text="${ask_shop.get('remark')}" th:name="remark"
-						th:field="*{remark}"></td>
-					<td><input type="hidden" name="id" th:field="*{id}"
-						th:value="${ask_shop.get('id')}" /><input type="submit"
-						th:value="削除" /></td>
+					<td th:text="${ask_shop.get('name')}"></td>
+					<td th:text="${ask_shop.get('url')}"></td>
+					<td th:text="${ask_shop.get('phone_number')}"></td>
+					<td th:text="${ask_shop.get('remark')}"></td>
+					<td><form method="post" action="#" th:action="@{/delete}"
+							th:object="${shopRequest}">
+							<input type="hidden" name="id" th:value="${ask_shop.get('id')}" />
+							<input type="submit" th:value="削除" onClick="return Check()"/>
+						</form></td>
 				</tr>
 			</table>
 		</form>
+
+		<script>
+		function Check(){
+		      var checked = confirm("削除します");
+		      if (checked == true) {
+		          return true;
+		      } else {
+		          return false;
+		      }
+		  }
+		</script>
 
 		<br /> <br />
 		<button type="button" class="button"

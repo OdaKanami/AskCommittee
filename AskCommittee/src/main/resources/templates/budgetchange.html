@@ -81,13 +81,13 @@
 				<tr th:each="ask_budget_content : ${ask_budget_content}">
 					<th>目的</th>
 					<td><input type="text"
-						th:value="${ask_budget_content.get('purpose')}" th:field="*{purpose}" th:errorclass="fieldError" name="purpose" /></td>
+						th:value="${ask_budget_content.get('purpose')}" th:errorclass="fieldError" name="purpose" /></td>
 					<th>日時</th>
 					<td><input type="date"
-						th:value="${ask_budget_content.get('day')}" th:field="*{day}" name="day" /></td>
+						th:value="${ask_budget_content.get('day')}" name="day" /></td>
 					<th>人数</th>
 					<td><input type="text"
-						th:value="${ask_budget_content.get('num_people')}" th:field="*{num_people}" name="num_people"
+						th:value="${ask_budget_content.get('num_people')}" name="num_people"
 						size="10" />名</td>
 				</tr>
 			</table>
@@ -150,13 +150,11 @@
 
 			}
 		</script>
-
 		<span th:each="ask_budget_content : ${ask_budget_content}"
 			th:text="'予算：￥' + ${ask_budget_content.budget}" class="under"></span>
 		<span class="moji1">-</span> <span th:text="'合計：￥' + ${total}"
 			class="under"></span> <span class="moji1">=</span> <span
 			th:text="'残高：￥' + ${balance}" class="under"></span> <br /> <br /> <br />
-
 
 		<table>
 			<tr>
