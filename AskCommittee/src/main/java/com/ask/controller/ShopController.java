@@ -89,22 +89,23 @@ public class ShopController {
 		List<Map<String,Object>> list;
 		list = jdbcTemplate.queryForList("select * from ask_shop");
 		model.addAttribute("ask_shop", list);
+		
 		model.addAttribute("shopRequest", new ShopRequest());
 		return "shopdelete";
 	}
 	
 	@RequestMapping(value = "/shopdeleteconfirm", method = RequestMethod.GET)
 	public String confirm(Model model) {
+		
 		return "shopdeleteconfirm";
 	}
 	
 	@RequestMapping(value = { "/shopdeleteconfirm" }, method = { RequestMethod.POST })
-	public String shopdeleteconfirm(@Validated @ModelAttribute("shopRequest") ShopRequest shopRequest, BindingResult result,
-			Model model) {
-
-		if (result.hasErrors()) {
-			return "shopdelete";
-		}
+	public String shopdeleteconfirm(@Validated @ModelAttribute("shopRequest") ShopRequest shopRequest, Model model) {
+		
+	//削除ボタン押下でID取得
+				
+	//IDに紐づいた店名~備考を取得
 
 		return "shopdeleteconfirm";
 	}
