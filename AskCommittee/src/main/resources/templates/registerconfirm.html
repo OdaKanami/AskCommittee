@@ -15,24 +15,33 @@
 		</div>
 		<h1>登録確認</h1>
 		
-		<form method="post" action="/registerconfirm">
-		<span>社員番号: </span>
-		<span th:text="${}"></span>
+		<form method="post" th:action="@{/registercomple}" th:object="${userRequest}">
+		<table>
+		<tr>
+			<th>社員番号</th>
+			<td><span th:text="${userRequest.id}"></span></td>
+		</tr>
+		<tr>
+			<th>名前</th>
+			<td><span th:text="${userRequest.name}"></span></td>
+		</tr>
+		<tr>
+			<th>メールアドレス</th>
+			<td><span th:text="${userRequest.email}"></span></td>
+		</tr>
+		<tr>		
+			<th><span>パスワード</span></th>
+			<td><span th:text="${userRequest.password}"></span></td>
+		</tr>
+		</table>
 		<br />
-		<span>名前</span>
-		<span th:text="${}"></span>
-		<br />
-		<span>メールアドレス</span>
-		<span th:text="${}"></span>
-		<br />
-		<span>パスワード</span>
-		<span th:text="${}"></span>
-		<br />
-		</form>
-	
 		<p>上記の内容で登録します。よろしいでしょうか？</p>
-		<a th:href="@{/register}">戻る</a>
-		<a th:href="@{/registercomple}">登録</a>
+
+		<a th:href="@{/register}" class="button">戻る</a>
+		<input type="submit" value="登録" class="button" />
+		</form>		
+		<br /><br />
+
 	</div>
 
 </body>
