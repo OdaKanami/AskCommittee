@@ -1,6 +1,5 @@
 package com.ask.service;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -12,7 +11,6 @@ import org.springframework.stereotype.Service;
 import com.ask.dto.ShopRequest;
 import com.ask.entity.Shop;
 import com.ask.repository.ShopRepository;
-import com.sun.xml.fastinfoset.sax.Properties;
 
 @Service
 @ComponentScan("service")

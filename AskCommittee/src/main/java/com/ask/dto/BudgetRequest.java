@@ -11,7 +11,7 @@ public class BudgetRequest implements Serializable{
 	
 	private String day;
 	private int num_people;
-	private String budgetInfo;
+	private String budget_info;
 	private int amount;
 	private String payee;
 	private String remark;
@@ -33,11 +33,11 @@ public class BudgetRequest implements Serializable{
 	public void setNum_people(int num_people) {
 		this.num_people = num_people;
 	}
-	public String getBudgetInfo() {
-		return budgetInfo;
+	public String getBudget_info() {
+		return budget_info;
 	}
-	public void setBudgetInfo(String budgetInfo) {
-		this.budgetInfo = budgetInfo;
+	public void setBudget_info(String budget_info) {
+		this.budget_info = budget_info;
 	}
 	public int getAmount() {
 		return amount;

@@ -24,7 +24,6 @@ public interface ShopRepository extends JpaRepository<Shop, Long>, JpaSpecificat
 
 	/**
 	 * お店情報新規登録
-	 * @param user ユーザー情報
 	 */
 	public default void create(ShopRequest shopRequest) {
 		this.save(CreateShop(shopRequest));
@@ -32,8 +31,6 @@ public interface ShopRepository extends JpaRepository<Shop, Long>, JpaSpecificat
 
 	/**
 	 * お店TBLエンティティの生成
-	 * @param shopRequest お店情報リクエストデータ
-	 * @return お店TBLエンティティ
 	 */
 	public default Shop CreateShop(ShopRequest shopRequest) {
 
