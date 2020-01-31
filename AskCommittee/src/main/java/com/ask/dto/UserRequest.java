@@ -12,7 +12,7 @@ import lombok.Data;
 public class UserRequest implements Serializable{
 
 	@Id
-    @GeneratedValue		
+//	@GeneratedValue
 	@NotEmpty(message = "社員番号を入力してください")
 	private Integer id;
 	

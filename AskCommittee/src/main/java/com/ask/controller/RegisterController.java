@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.ask.dto.UserRequest;
 import com.ask.service.UserService;
@@ -15,6 +16,7 @@ import com.ask.service.UserService;
 
 @EnableAutoConfiguration
 @Controller
+@SessionAttributes("userRequrst")
 public class RegisterController {
 	
 	@Autowired
@@ -40,10 +42,10 @@ public class RegisterController {
 		return "registerconfirm";
 	}
 	
-	@RequestMapping(value="/registerconfirm", method = RequestMethod.GET)
-	private String registerconfirm2(Model model){
-		return "registerconfirm";
-	}
+//	@RequestMapping(value="/registerconfirm", method = RequestMethod.GET)
+//	private String registerconfirm2(Model model){
+//		return "registerconfirm";
+//	}
 	
 	/**
 	  * 登録完了

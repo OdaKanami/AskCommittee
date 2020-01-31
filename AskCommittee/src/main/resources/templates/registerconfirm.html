@@ -15,7 +15,7 @@
 		</div>
 		<h1>登録確認</h1>
 		
-		<form method="post" th:action="@{/registercomple}" th:object="${userRequest}">
+		<form action="/registercomple" th:action="@{/registercomple}" th:object="${userRequest}" method="post">
 		<table>
 		<tr>
 			<th>社員番号</th>
