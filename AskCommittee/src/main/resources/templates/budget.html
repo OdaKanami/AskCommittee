@@ -32,7 +32,7 @@
 				<th>備考</th>
 			<tr>
 			<tr th:each="ask_budget_detail : ${ask_budget_detail}">
-				<td th:text="${ask_budget_detail.get('budgetInfo')}"></td>
+				<td th:text="${ask_budget_detail.get('budget_info')}"></td>
 				<td th:text="${ask_budget_detail.get('amount')}"></td>
 				<td th:text="${ask_budget_detail.get('payee')}"></td>
 				<td th:text="${ask_budget_detail.get('remark')}"></td>

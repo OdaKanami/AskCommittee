@@ -162,3 +162,11 @@ ul li:last-child{
 	text-align: left;
 }
 
+.entry-content .resize{
+	wide:296px;
+	display:block;
+	padding:1em;
+	box-sizing:boder-box;
+	transaction: all 1s ease-out;
+	online:none;
+}

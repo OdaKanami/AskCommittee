@@ -20,9 +20,9 @@
 				<th>目的</th>
 				<td><span th:text="${budgetRequest.purpose}"></span></td>
 				<th>日時</th>
-				<td>2019/12/27</td>
+				<td><span th:text="${budgetRequest.day}"></span></td>
 				<th>人数</th>
-				<td>13名</td>
+				<td><span th:text="${budgetRequest.num_people}"></span></td>
 			</tr>
 		</table>
 		<table id="sample1_table">
@@ -32,10 +32,10 @@
 				<th>支払先</th>
 				<th>備考</th>
 			<tr>
-			<tr><td>飲食</td>
-				<td>￥5000</td>
-				<td>AJO</td>
-				<td></td>
+			<tr><td><span th:text="${budgetRequest.budget_info}"></span></td>
+				<td><span th:text="${budgetRequest.amount}"></span></td>
+				<td><span th:text="${budgetRequest.payee}"></span></td>
+				<td><span th:text="${budgetRequest.remark}"></span></td>
 			</tr>
 		</table>
 		</form>

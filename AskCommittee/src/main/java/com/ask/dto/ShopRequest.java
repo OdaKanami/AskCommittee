@@ -2,6 +2,7 @@ package com.ask.dto;
 
 import java.io.Serializable;
 
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;

@@ -8,8 +8,8 @@
 <body>
 	<div align="center" id="container">
 		<div class="cmt_logo">
-			<a th:href="@{/top}">
-				<img src="img/cmt_logo.png" alt="AskCommittee" />
+			<a th:href="@{/top}"> <img src="img/cmt_logo.png"
+				alt="AskCommittee" />
 			</a>
 		</div>
 		<h1>予算変更</h1>
@@ -44,8 +44,8 @@
 				/**
 				 * セルの内容
 				 */
-				var row_budgetInfo = '<select name="budgetInfo" required>'
-						+ '<option value="">選択してください</option>'
+				var row_budget_info = '<select name= "budget_info" required>'
+						+ '<option value="選択して下さい">選択してください</option>'
 						+ '<option value="飲食">飲食</option>'
 						+ '<option value="アクティビティ">アクティビティ</option>'
 						+ '<option value="備品">備品</option>'
@@ -59,7 +59,7 @@
 				var row_remark = '<input type="text" name="remark" size="30"/>';
 
 				cell1.innerHTML = button;
-				cell2.innerHTML = row_budgetInfo;
+				cell2.innerHTML = row_budget_info;
 				cell3.innerHTML = row_amount;
 				cell4.innerHTML = row_payee;
 				cell5.innerHTML = row_remark;
@@ -81,14 +81,15 @@
 				<tr th:each="ask_budget_content : ${ask_budget_content}">
 					<th>目的</th>
 					<td><input type="text"
-						th:value="${ask_budget_content.get('purpose')}" th:errorclass="fieldError" name="purpose" /></td>
+						th:value="${ask_budget_content.get('purpose')}"
+						th:errorclass="fieldError" name="purpose" /></td>
 					<th>日時</th>
 					<td><input type="date"
 						th:value="${ask_budget_content.get('day')}" name="day" /></td>
 					<th>人数</th>
 					<td><input type="text"
-						th:value="${ask_budget_content.get('num_people')}" name="num_people"
-						size="10" />名</td>
+						th:value="${ask_budget_content.get('num_people')}"
+						name="num_people" size="10" />名</td>
 				</tr>
 			</table>
 
@@ -103,13 +104,15 @@
 				<tr th:each="ask_budget_detail : ${ask_budget_detail}">
 					<td nowrap><input type="button" value="削除"
 						onclick="deleteRow(this)" /></td>
-					<td><select th:value="${ask_budget_detail.get('budgetInfo')}"
-						name="budgetInfo" required>
-							<option value="1">選択してください</option>
-							<option value="2">飲食</option>
-							<option value="3">アクティビティ</option>
-							<option value="4">備品</option>
-							<option value="5">交通費</option>
+					<td><select name="budget_info">
+							<!--  TODO masterをループさせてプルダウン生成 -->
+							<option value="">選択してください</option>
+							<option th:each="ask_budget_info : ${ask_budget_info}"
+			
+						th:if="${ask_budget_info.id = ask_budget_detail.id}" th:value="${ask_budget_info.get('id')}"
+								th:text="${ask_budget_info.get('contents')}"></option>
+							<!--  TODO ループの中でbuget-detaiと同じ値 -->
+							
 					</select></td>
 					<td>￥<input type="text"
 						th:value="${ask_budget_detail.get('amount')}" name="amount"
@@ -122,7 +125,8 @@
 						size="30" /></td>
 				</tr>
 			</table>
-			<br /> <br /> <input type="button" value="行追加" class="btn-flat-vertical-border"
+			<br /> <br /> <input type="button" value="行追加"
+				class="btn-flat-vertical-border"
 				onclick="insertRow('sample1_table')" /> <br /> <span
 				th:if="${#fields.hasErrors('purpose')}" th:errors="*{purpose}"
 				style="color: red"></span> <br /> <br /> <input type="submit"
@@ -130,8 +134,7 @@
 			<button type="button" class="button"
 				onclick="location.href='http://localhost:8080/budget'">キャンセル</button>
 		</form>
-		<br />
-		<br />
+		<br /> <br />
 
 		<script type="text/javascript">
 			function keisan() {
