@@ -1,7 +1,5 @@
 package com.ask.controller;
 
-import java.util.ArrayList;
-
 import java.util.List;
 
 import java.util.Map;
@@ -18,10 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.ask.dto.BudgetRequest;
-import com.ask.entity.Budget;
-import com.ask.entity.BudgetInfo;
-import com.ask.entity.Shop;
-import com.ask.repository.ShopRepository;
 import com.ask.service.BudgetService;
 
 @EnableAutoConfiguration
@@ -47,7 +41,6 @@ public class BudgetController {
 		int balance = jdbcTemplate.queryForObject("SELECT bc.budget - SUM(bd.amount) AS calk\r\n"
 				+ "FROM askdb.ask_budget_content bc ,askdb.ask_budget_detail bd\r\n" + "WHERE bc.id = bd.detail_id",
 				Integer.class);
-		
 		model.addAttribute("total", total);
 		model.addAttribute("balance", balance);
 		model.addAttribute("ask_budget_content", contentList);

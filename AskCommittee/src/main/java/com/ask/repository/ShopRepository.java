@@ -19,7 +19,7 @@ public interface ShopRepository extends JpaRepository<Shop, Long>, JpaSpecificat
 	 * @return 検索結果
 	 */
 	public default List<Shop> searchAll() {
-		return this.findAll();
+		return thnumbers.findAll();
 	}
 
 	/**

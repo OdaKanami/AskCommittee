@@ -27,9 +27,9 @@ public class BudgetService {
 	/**
 	 * 予算情報 全検索
 	 */
-//	public List<BudgetInfo> findAll() {
-//		return budgetInfoRepository.findAll();
-//	}
+	public List<BudgetInfo> findAll() {
+		return budgetInfoRepository.findAll();
+	}
 
 
 	/**
